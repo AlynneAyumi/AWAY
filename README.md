@@ -65,10 +65,10 @@ Abra o navegador e acesse `http://localhost:3000` para visualizar a interface do
 
 ## Equipe de Desenvolvimento
 
-- **Ana Luísa Cantu**
-- **Alynne Ayumi**
-- **Wendryel Gabriel**
-- **Yel Antônio**
+- **Ana Luísa Cantu Cardoso**
+- **Alynne Ayumi Kuriyama**
+- **Wendryel Gabriel Furlan Bruneto**
+- **Yel Antônio Draszewski**
 
 ## Licença
 
