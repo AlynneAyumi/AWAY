@@ -1,17 +1,18 @@
+/* Estrutura Geral _______________________________*/
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
 }
+
 
 main {
     width: 100%;
     height: 100%;
 }
+
 
 footer {
     text-align: center;
@@ -19,6 +20,37 @@ footer {
     background-color: #e2e2e2;
 }
 
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+h1 {
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    
+}
+
+
+
+/* Botão de Menu Lateral _______________________________*/
+button#menuButton {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+button#menuButton:active {
+    
+}
+
+
+
+/* Menu Lateral _______________________________*/
 div#sideMenu {
     background-color: #006699;
     padding: 10px;
@@ -28,6 +60,7 @@ div#sideMenu {
     align-items: center;
 }
 
+
 ul {
     margin: 70px 0px;
     padding-top: 100%;
@@ -35,23 +68,32 @@ ul {
     padding-inline-start: 0px;
 }
 
-ul li {
+
+div#sideMenu ul li {
     list-style: none;
     box-sizing: border-box;
-    border: 2px solid #004161;
-    border-radius: 5px;
+    /*border: 2px solid #004161;
+    border-radius: 5px;*/
     padding: 12px;
     margin: 10px 0px; 
     width: 100%;
     text-align: center;
+    background-color: #187caf; 
 }
 
-h1 {
-    text-align: center;
-    width: 200px;
-    padding: 10px;
-    
+
+div#sideMenu ul li:hover {
+    transition: background-color 0.3s ease-in;
+    background-color: #0284c5;
 }
+
+
+div#sideMenu ul li:active {
+    transition: background-color;
+    background-color: #004161;
+}
+
+
 
 
 
