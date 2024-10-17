@@ -8,14 +8,10 @@
 </head>
 <body>
     <header>
-        <button id="menuButton">
-            <img src="source/MenuButton.svg" alt="Botão de Menu">
-        </button>
-    </header>
-    <main>
-        <div id="sideMenu">
+        <div class="sideBar" id="sideBar">
+            <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
             <ul>
-                <a href="#1" >
+                <a href="#1">
                     <li>Primeiro</li>
                 </a>
                 <a href="#2" target="_blank">
@@ -29,6 +25,13 @@
                 </a>
             </ul>
         </div>
+
+        <div>
+            <button class="openBtn" onclick="openNav()">&#9776;</button>
+        </div>
+    </header>
+    <main>
+        
     </main>
     <footer>
         Direitos reservados - Equipe AWAY

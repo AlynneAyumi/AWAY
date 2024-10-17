@@ -1,31 +1,29 @@
 /* Estrutura Geral _______________________________*/
-body, html {
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
     background-color: #ffffff;
 }
-
-
-main {
-    width: 100%;
-    height: 100%;
-}
-
 
 footer {
     text-align: center;
     padding: 20px 0px;
     background-color: #e2e2e2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-
 
 a {
     text-decoration: none;
     color: black;
 }
-
 
 h1 {
     text-align: center;
@@ -36,7 +34,7 @@ h1 {
 
 
 
-/* Botão de Menu Lateral _______________________________*/
+/* Botão de Menu Lateral _______________________________
 button#menuButton {
     background-color: transparent;
     border: none;
@@ -44,36 +42,40 @@ button#menuButton {
     cursor: pointer;
 }
 
-button#menuButton:active {
-    
-}
 
-
-
-/* Menu Lateral _______________________________*/
+/* Menu Lateral ________________________________________
 div#sideMenu {
     background-color: #006699;
     padding: 10px;
     width: 13%;
     min-width: 120px;
-    height: 100%;
+    position: fixed;
+    height: 100vh;
     align-items: center;
 }
 
+div#sideMenu div#closeMenu {
+    cursor: pointer;
+    background-color: #187caf;
+    text-align: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+}
 
-ul {
+div#sideMenu ul {
     margin: 70px 0px;
     padding-top: 100%;
     padding-bottom: 100%;
     padding-inline-start: 0px;
 }
 
-
 div#sideMenu ul li {
     list-style: none;
     box-sizing: border-box;
     /*border: 2px solid #004161;
-    border-radius: 5px;*/
+    border-radius: 5px;
     padding: 12px;
     margin: 10px 0px; 
     width: 100%;
@@ -81,19 +83,72 @@ div#sideMenu ul li {
     background-color: #187caf; 
 }
 
-
 div#sideMenu ul li:hover {
     transition: background-color 0.3s ease-in;
     background-color: #0284c5;
 }
 
-
 div#sideMenu ul li:active {
     transition: background-color;
     background-color: #004161;
 }
+    
+/* Menu Lateral V2 _____________________________________*/
 
+header {
+    position: relative;
+    height: 100vh;
+}
 
+.sideBar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #006699;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
 
+.sideBar ul a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sideBar ul a:hover {
+    transition: background-color 0.1s;
+    background-color: #0284c5;
+    color: #ffffff;
+}
+
+.sideBar ul a:active {
+    transition: background-color;
+    background-color: #004161;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #ffffff;
+}
+
+.openBtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #006699;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
 
 
