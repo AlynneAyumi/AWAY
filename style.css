@@ -14,7 +14,7 @@ footer {
     text-align: center;
     padding: 20px 0px;
     background-color: #e2e2e2;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     left: 0;
     right: 0;
@@ -32,72 +32,16 @@ h1 {
     
 }
 
-
-
-/* Botão de Menu Lateral _______________________________
-button#menuButton {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-
-/* Menu Lateral ________________________________________
-div#sideMenu {
-    background-color: #006699;
-    padding: 10px;
-    width: 13%;
-    min-width: 120px;
-    position: fixed;
-    height: 100vh;
-    align-items: center;
-}
-
-div#sideMenu div#closeMenu {
-    cursor: pointer;
-    background-color: #187caf;
-    text-align: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    margin-left: auto;
-}
-
-div#sideMenu ul {
-    margin: 70px 0px;
-    padding-top: 100%;
-    padding-bottom: 100%;
-    padding-inline-start: 0px;
-}
-
-div#sideMenu ul li {
-    list-style: none;
-    box-sizing: border-box;
-    /*border: 2px solid #004161;
-    border-radius: 5px;
-    padding: 12px;
-    margin: 10px 0px; 
-    width: 100%;
-    text-align: center;
-    background-color: #187caf; 
-}
-
-div#sideMenu ul li:hover {
-    transition: background-color 0.3s ease-in;
-    background-color: #0284c5;
-}
-
-div#sideMenu ul li:active {
-    transition: background-color;
-    background-color: #004161;
-}
     
 /* Menu Lateral V2 _____________________________________*/
 
 header {
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
 }
 
 .sideBar {
@@ -113,7 +57,13 @@ header {
     padding-top: 60px;
 }
 
-.sideBar ul a {
+div.sideBar ul {
+    list-style: none;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div.sideBar ul a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -147,8 +97,24 @@ header {
     cursor: pointer;
     background-color: #006699;
     color: white;
-    padding: 10px 15px;
+    padding: 5px 10px;
     border: none;
+    border-radius: 8px;
 }
 
+
+/* Ícone Usuário _______________________________________*/
+
+div.userIcon {
+    background-color: #006699;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    text-align: center;
+    border-radius: 40px;
+}
+
+div.userIcon a img{
+    width: 35px;
+}
 
