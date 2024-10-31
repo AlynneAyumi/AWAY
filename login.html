@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="stylelogin.css">
+    <link rel="stylesheet" href="style-login.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1>LOGIN</h1>
         <div class="login">
-            <form>
+            <form id="loginForm">
                 <label for="usuario">Usuário:</label><br>
                 <input type="text" id="usuario" required><br>
-                <label for="password">Senha:</label><br>
-                <input type="password" id="password" required><br>
-                <button onclick="window.location.href='index.html'">Login</button>
+                <label for="senha">Senha:</label><br>
+                <input type="password" id="senha" required><br>
+                <button type="submit" id="botaoLogin">Login</button>
             </form>
         </div>
     </div>
+    <script src="script-login.js"></script>
 </body>
 </html>
