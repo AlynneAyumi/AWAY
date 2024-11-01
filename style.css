@@ -14,7 +14,7 @@ footer {
     text-align: center;
     padding: 20px 0px;
     background-color: #e2e2e2;
-    /* position: absolute; */
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -118,3 +118,72 @@ div.userIcon a img{
     width: 35px;
 }
 
+
+/* Tela Principal - Pesquisa ____________________________*/
+
+div.mainContent {
+    margin: 10px;
+    padding: 10px;
+    border-top: 2px solid #BEBEBE;
+    margin-top: 20px;
+}
+
+div .searchBar {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+#searchInput {
+    margin: 10px;
+    padding: 10px;
+    width: 500px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid #BEBEBE;
+}
+
+#searchInput:focus {
+    outline: none;
+    border: 2px solid #006699;
+}
+
+.useButton {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #006699;
+    color: white;
+    border-radius: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.useButton:hover {
+    background-color: #0f7fb8;
+}
+
+#resultTable {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+}
+th {
+    background-color: #006699;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
