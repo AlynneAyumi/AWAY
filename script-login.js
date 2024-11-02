@@ -1,4 +1,4 @@
-localStorage.setItem('usuario', 'admin');
+localStorage.setItem('usuario', 'admin@away.com');
 localStorage.setItem('senha', 'senha123');
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {

@@ -50,7 +50,15 @@ input {
     font-size: 22px;
     font-weight: 200;
     text-align: center;
-    color: #878787;
+    color: #1e1e1e;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: #dddddd;
 }
 
 h1 {
@@ -74,4 +82,8 @@ button {
     font-weight: 100;
     margin-top: 45px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f7fb8;
 }
