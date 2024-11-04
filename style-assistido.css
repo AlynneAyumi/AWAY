@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+}
+
+.menu-lateral {
+    width: 20%; /* Ajuste a largura conforme necessário */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.conteudo {
+    width: 60%;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    /* display: none; */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Outros estilos para personalizar a aparência */
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+label {
+    font-weight: bold;
+}
+
+.btnTeste {
+    /* Estilos para o botão de salvar ou enviar */
+}
