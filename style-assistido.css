@@ -1,38 +1,143 @@
-.container {
-    display: flex;
-}
-
-.menu-lateral {
-    width: 20%; /* Ajuste a largura conforme necessário */
-    background-color: #f0f0f0;
+/* Tela Principal */
+.profile-container, .presence-control {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border-right: 1px solid #ccc;
+    background-color: #ffffff;
+    margin: 10px; /* Melhor centralização e espaçamento */
 }
 
-.conteudo {
-    width: 60%;
-    padding: 20px;
-    background-color: #fff;
-    border-left: 1px solid #ccc;
-    /* display: none; */
-}
-
-.form-group {
+/* Títulos - Ajustes Visuais */
+.profile-container h1, .presence-control h1, .custom-title {
+    color: #006699 !important; 
+    white-space: nowrap;
+    font-size: 1.5rem !important;
+    padding-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 2px solid #006699;
     margin-bottom: 20px;
 }
 
-/* Outros estilos para personalizar a aparência */
+/* Títulos das abas (Perfil, Endereço, Arquivos) */
+.nav-link {
+    color: #004d66 !important; 
+}
 
-input[type="text"] {
-    width: 70%;
+.nav-link:hover {
+    color: #006699 !important; 
+}
+
+.nav-link.active {
+    color: #006699 !important; 
+}
+
+/* Formulários */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #BEBEBE;
+    margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ccc;
 }
 
-label {
-    font-weight: bold;
+.form-control:focus, .form-select:focus {
+    border-color: #006699;
 }
 
-.btnTeste {
-    /* Estilos para o botão de salvar ou enviar */
+/* Tabela de Presença */
+.table-hover {
+    border-radius: 8px;
+    border: 1px solid #BEBEBE;
+    overflow: hidden; /* Garante que as bordas arredondadas apareçam */
+    margin-top: 20px;
 }
+
+.table-hover th, .table-hover td {
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.table-hover th {
+    background-color: #006699;  /* Cor de fundo do cabeçalho */
+    color: white;  /* Cor do texto do cabeçalho */
+    font-weight: bold;  /* Deixa o texto em negrito */
+    border-bottom: 2px solid #ffffff;  /* Linha sutil separando o cabeçalho do corpo */
+}
+
+.table-hover tbody tr {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.table-hover tbody tr:nth-child(even) {
+    background-color: #f4f4f4;  /* Cor de fundo para linhas alternadas */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #ddd;  /* Cor de fundo ao passar o mouse */
+    transition: background-color 0.3s ease;
+}
+
+.table-hover td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Botão Salvar Presença */
+.btn-success {
+    background-color: #006699;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.btn-success:hover {
+    background-color: #0284c5;
+}
+
+/* Ajustes de Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas pequenas */
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.col-md-6 {
+    flex: 1 1 48%; /* Ajusta para ocupar até 48% do espaço da tela */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Espaço entre as colunas */
+}
+
+/* Layout Responsivo */
+@media (max-width: 768px) {
+    .col-md-6 {
+        flex: 1 1 100%; /* Colunas ocupam 100% da largura em telas pequenas */
+    }
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+#observacoes {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: 8px;
+}
+
+#historico {
+    list-style-type: none;
+    padding: 0;
+}
+
+table td, table th {
+    vertical-align: middle;
+}
+

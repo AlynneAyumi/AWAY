@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
+    font-family: 'Roboto', sans-serif; 
 }
 
 footer {
@@ -29,15 +30,12 @@ h1 {
     text-align: center;
     width: 200px;
     padding: 10px;
-    
 }
 
-    
 /* Menu Lateral V2 _____________________________________*/
 
 header {
     position: relative;
-    /* height: 100vh; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -102,7 +100,6 @@ div.sideBar ul a {
     border-radius: 8px;
 }
 
-
 /* Ícone Usuário _______________________________________*/
 
 div.userIcon {
@@ -117,7 +114,6 @@ div.userIcon {
 div.userIcon a img{
     width: 35px;
 }
-
 
 /* Tela Principal - Pesquisa ____________________________*/
 

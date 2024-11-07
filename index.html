@@ -3,47 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
     <title>AWAY</title>
 </head>
 <body>
-    <header>
-        <div class="sideBar" id="sideBar">
-            <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
-            <ul>
-                <a href="#1">
-                    <li>Tela Principal</li>
-                </a>
-                <a href="Tela_Assistido.html" target="_blank">
-                    <li>Tela de Assistido</li>
-                </a>
-                <a href="#3" target="_blank">
-                    <li>Terceiro</li>
-                </a>
-                <a href="#4" target="_blank">
-                    <li>Qualquer coisa</li>
-                </a>
-            </ul>
-        </div>
-
-        <div>
-            <button class="openBtn" onclick="openNav()">&#9776;</button>
-        </div>
-
-        <div class="userIcon">
-            <a href="login.html">
-                <img src="source/IconUser.svg" alt="Ícone Usuário">
-            </a>
-        </div>
-
-
-    </header>
+    <div id="header"></div> <!-- Header será incluído aqui -->
     <main>
         <div class="mainContent">
             <div class="searchBar" id="searchBar">
                 <input type="search" id="searchInput" placeholder="Pesquisar nome...">
                 <button class="useButton" id="searchButton" onclick="search()">Pesquisar</button>
-                <button class="useButton"> Filtros </button>
+                <button class="useButton">Filtros</button>
             </div>
             <div class="searchResult" id="searchResult">
                 <table id="resultTable">
@@ -61,6 +32,7 @@
     <footer>
         Direitos reservados - Equipe AWAY
     </footer>
+    <script src="loadContent.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
