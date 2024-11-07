@@ -1,4 +1,4 @@
-// Função para carregar o conteúdo de um arquivo HTML em um elemento específico
+// Função para carregar o conteudo do HTML 
 function loadHTML(elementId, file) {
     fetch(file)
         .then(response => {
@@ -11,7 +11,7 @@ function loadHTML(elementId, file) {
         .catch(error => console.error("Erro:", error));
 }
 
-// Carregar o header e o menu lateral nas páginas
+// Carregar o header e o menu lateral nas paginas
 window.addEventListener("DOMContentLoaded", () => {
     loadHTML("header", "header.html");
     loadHTML("menu", "menu.html");
