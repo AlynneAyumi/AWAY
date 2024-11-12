@@ -12,7 +12,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
 
     if (usuarioLogin === usuarioSalvo && senhaLogin === senhaSalva) {
-        window.location.href = 'index.html';
+        window.location.href = '/Telas/index.html';
 
     } else {
         alert('Email ou senha incorretos.');

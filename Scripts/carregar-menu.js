@@ -13,6 +13,6 @@ function loadHTML(elementId, file) {
 
 // Carregar o header e o menu lateral nas paginas
 window.addEventListener("DOMContentLoaded", () => {
-    loadHTML("header", "header.html");
-    loadHTML("menu", "menu.html");
+    loadHTML("header", "/Telas/header.html");
+    loadHTML("menu", "/Telas/menu.html");
 });
