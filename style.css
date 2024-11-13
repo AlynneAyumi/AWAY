@@ -117,7 +117,7 @@ div.userIcon a img{
 
 /* Tela Principal - Pesquisa ____________________________*/
 
-div.mainContent {
+div .mainContent {
     margin: 10px;
     padding: 10px;
     border-top: 2px solid #BEBEBE;
@@ -127,16 +127,22 @@ div.mainContent {
 div .searchBar {
     display: flex;
     justify-content: end;
+    align-items: center;
+    height: 70px;
+    width: 45%;
     margin-right: 20px;
+    margin-left: 53%;
+    margin-top: 10px;
 }
 
 #searchInput {
     margin: 10px;
     padding: 10px;
     width: 500px;
-    height: 40px;
+    height: 45px;
     border-radius: 20px;
     border: 2px solid #BEBEBE;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #searchInput:focus {
@@ -149,10 +155,14 @@ div .searchBar {
     font-size: 16px;
     border: none;
     background-color: #006699;
+    height:80%;
     color: white;
     border-radius: 10px;
     margin-left: 5px;
+    margin-right: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 .useButton:hover {
@@ -161,25 +171,63 @@ div .searchBar {
 
 #resultTable {
     margin: 10px;
-    padding: 10px;
-    width: 100%;
-    border-collapse: collapse;
+    width: 98.5%;
     margin-top: 20px;
 }
 
+.searchResult {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px 8px 0 0;
+}
+
 th, td {
-    border: 1px solid #333;
     padding: 10px;
 }
+
+th + th {
+    border-left: 1px solid #5a5a5a;
+}
+
+td {
+    border: 1px solid #ccc;
+}
+
 th {
     background-color: #006699;
     color: white;
+    border: 1px solid #333;
 }
+
+tr {
+    color: #3A3A3A;
+    font-weight: 300;
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px solid #333;
+}
+
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: rgb(248, 249, 250);
 }
 
 tr:hover {
     background-color: #ddd;
     transition: background-color 0.3s ease;
+}
+
+th:first-child {
+    border-top-left-radius: 8px;
+}
+
+th:last-child {
+    border-top-right-radius: 8px;
 }
