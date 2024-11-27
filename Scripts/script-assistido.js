@@ -1,9 +1,24 @@
 const botao = document.getElementById('btnTeste');
 const conteudo = document.getElementById('conteudo');
 
+/*
 botao.addEventListener('click', () => {
     conteudo.style.display = 'none';
 });
+*/
+
+/* Função para trazer as informações do assistido */
+(function carregarAssistido() {
+    let assistido = JSON.parse(localStorage.getItem('assistido')) || {};
+
+    console.log(assistido);
+
+    document.getElementById('nome').value = assistido.nome;
+    document.getElementById('idade').value = assistido.idade;
+    document.getElementById('sexo').value = assistido.sexo;
+    document.getElementById('dataNascimento').value = assistido.nascimento;
+    document.getElementById('nome-presenca').value = assistido.nome;
+})();
 
 /* Função para adicionar item no histórico */
 function adicionarHistorico(nome, data, status, dataHora, atrasado) {
