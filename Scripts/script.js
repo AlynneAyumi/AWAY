@@ -10,6 +10,7 @@ function openNav() {
 
 /* Tela Principal ----------------------- */
 
-function goToPage(nome, auto, genero, vara, obs) {
-    window.location.href = `Tela_Assistido.html?nome=${nome}&auto=${auto}&genero=${genero}&vara=${vara}&obs=${obs}`;
+function goToPage(nome, idade, sexo, nascimento) {
+    localStorage.setItem('assistido', JSON.stringify({nome, idade, sexo, nascimento}));
+    window.location.href = '/Telas/Tela_Assistido.html';
 }
