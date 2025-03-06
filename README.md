@@ -17,7 +17,7 @@ Este projeto tem como objetivo desenvolver um **sistema de gestão de processos*
   - HTML5, CSS, JavaScript
   
 - **Backend:**
-  - Node.js 
+  - À Definir
   
 - **Banco de Dados:**
   - MongoDB para armazenamento dos dados dos usuários e atividades
@@ -68,7 +68,6 @@ Abra o navegador e acesse `http://localhost:3000` para visualizar a interface do
 - **Ana Luísa Cantu Cardoso**
 - **Alynne Ayumi Kuriyama**
 - **Wendryel Gabriel Furlan Bruneto**
-- **Yel Antônio Draszewski**
 
 ## Licença
 
