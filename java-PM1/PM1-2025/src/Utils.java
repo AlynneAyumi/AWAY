@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Utils {
     static void limpaTela() {
         System.out.print("\033[H\033[2J");
@@ -10,5 +12,11 @@ public class Utils {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    static void pause() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\n\nPressione enter para continuar... ");
+        scanner.nextLine();
     }
 }
