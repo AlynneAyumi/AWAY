@@ -1,0 +1,3 @@
+interface RelatorioGeral {
+    void gerarRelatorio();
+}
