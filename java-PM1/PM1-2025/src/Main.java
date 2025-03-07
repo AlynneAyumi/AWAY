@@ -14,21 +14,24 @@ public class Main {
             System.out.println("1. Cadastrar Assistido");
             System.out.println("2. Registrar Comparecimento");
             System.out.println("3. Exibir Assistidos");
-            System.out.println("4. Remover Assistido");
-            System.out.println("5. Gerar Relatório");
-            System.out.println("6. Sair");
+            System.out.println("4. Editar informações");
+            System.out.println("5. Remover Assistido");
+            System.out.println("6. Gerar Relatório");
+            System.out.println("7. Sair");
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
+            Utils.limpaTela();            
             switch (opcao) {
                 case 1 -> cadastrarAssistido();
                 case 2 -> registrarComparecimento();
                 case 3 -> exibirAssistidos();
-                case 4 -> removerAssistido();
-                case 5 -> gerarRelatorio();
-                case 6 -> {
+                case 4 -> editarInformacoes();
+                case 5 -> removerAssistido();
+                case 6 -> gerarRelatorio();
+                case 7 -> {
                     System.out.println("\nSaindo...");
                     Utils.delay(1);
                     Utils.limpaTela();
@@ -42,8 +45,8 @@ public class Main {
         }
     }
 
+
     private static void cadastrarAssistido() {
-        Utils.limpaTela();
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("RG: ");
@@ -59,8 +62,8 @@ public class Main {
         Utils.delay(1);
     }
 
+
     private static void registrarComparecimento() {
-        Utils.limpaTela();
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -95,8 +98,8 @@ public class Main {
         Utils.delay(1);
     }
 
+
     private static void exibirAssistidos() {
-        Utils.limpaTela();
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -109,8 +112,64 @@ public class Main {
         Utils.pause();
     }
 
-    private static void removerAssistido() {
+
+    private static void editarInformacoes() {
+        if (assistidos.isEmpty()) {
+            System.out.println("Nenhum assistido cadastrado.");
+            Utils.delay(1);
+            return;
+        }
+
+        System.out.println("Selecione o assistido para editar:");
+        for (int i = 0; i < assistidos.size(); i++) {
+            System.out.println((i + 1) + ". " + assistidos.get(i).getNome());
+        }
+        
+        int escolha = scanner.nextInt() - 1;
+        scanner.nextLine();
+
+        if (escolha < 0 || escolha > assistidos.size()) {
+            System.out.println("Escolha inválida.");
+            Utils.delay(1);
+            return;
+        }           
+        
+        Assistido assistidoEscolhido = assistidos.get(escolha);
+
         Utils.limpaTela();
+        System.out.println("Selecione qual informação deseja editar:");
+        System.out.println("1. Nome - " + assistidoEscolhido.getNome());
+        System.out.println("2. RG   - " + assistidoEscolhido.getRg());
+        System.out.println("3. CPF  - " + assistidoEscolhido.getCpf());
+
+        escolha = scanner.nextInt();
+        scanner.nextLine();
+
+        if (escolha < 1 || escolha > 3) {
+            System.out.println("Escolha inválida.");
+            Utils.delay(1);
+            return;
+        }
+
+        Utils.limpaTela();
+        switch (escolha) {
+            case 1:
+                System.out.println("Insira o novo nome");
+                assistidoEscolhido.setNome(scanner.nextLine());
+                break;
+            case 2:
+                System.out.println("Insira o novo RG");
+                assistidoEscolhido.setRg(scanner.nextLine());
+                break;
+            case 3:
+                System.out.println("Insira o novo CPF");
+                assistidoEscolhido.setCpf(scanner.nextLine());
+                break;
+        }
+    }
+
+
+    private static void removerAssistido() {
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -135,8 +194,8 @@ public class Main {
         }
     }
 
+
     private static void gerarRelatorio() {
-        Utils.limpaTela();
         System.out.println("Relatório ainda em desenvolvimento...");
         Utils.delay(1);
     }
