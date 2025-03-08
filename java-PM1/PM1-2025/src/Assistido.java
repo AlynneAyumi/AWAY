@@ -8,8 +8,8 @@ class Assistido extends Pessoa {
     private LocalDate dataSaida;
     private List<Comparecimento> atividades;
 
-    public Assistido(String nome, String rg, String cpf, String historicoCriminal, LocalDate dataEntrada) {
-        super(nome, rg, cpf);
+    public Assistido(String nome, String dataNasc, String CPF, String CEP, String historicoCriminal, LocalDate dataEntrada) {
+        super(nome, dataNasc, CPF, CEP);
         this.historicoCriminal = historicoCriminal;
         this.dataEntrada = dataEntrada;
         this.atividades = new ArrayList<>();
@@ -49,7 +49,7 @@ class Assistido extends Pessoa {
 
     @Override
     public void exibirInformacoes() {
-        System.out.println("Assistido: " + getNome() + ", RG: " + getRg() + ", CPF: " + getCpf());
+        System.out.println("Assistido: " + getNome() + "\n Data Nascimento: " + getDataNasc() + "\n CPF: " + getCPF());
         System.out.println("Historico Criminal: " + historicoCriminal);
         System.out.println("Data de Entrada: " + dataEntrada);
         System.out.println("Data de Saída: " + (dataSaida != null ? dataSaida : "Ainda presente"));

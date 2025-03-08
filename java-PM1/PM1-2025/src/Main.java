@@ -49,14 +49,16 @@ public class Main {
     private static void cadastrarAssistido() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
-        System.out.print("RG: ");
-        String rg = scanner.nextLine();
+        System.out.print("Data Nascimento: ");
+        String dataNasc = scanner.nextLine();
         System.out.print("CPF: ");
-        String cpf = scanner.nextLine();
+        String CPF = scanner.nextLine();
+        System.out.print("CEP: ");
+        String CEP = scanner.nextLine();
         System.out.print("Histórico Criminal: ");
         String historico = scanner.nextLine();
 
-        Assistido assistido = new Assistido(nome, rg, cpf, historico, LocalDate.now());
+        Assistido assistido = new Assistido(nome, dataNasc, CPF, CEP, historico, LocalDate.now());
         assistidos.add(assistido);
         System.out.println("\nAssistido cadastrado com sucesso!");
         Utils.delay(1);
@@ -139,8 +141,8 @@ public class Main {
         Utils.limpaTela();
         System.out.println("Selecione qual informação deseja editar:");
         System.out.println("1. Nome - " + assistidoEscolhido.getNome());
-        System.out.println("2. RG   - " + assistidoEscolhido.getRg());
-        System.out.println("3. CPF  - " + assistidoEscolhido.getCpf());
+        System.out.println("2. Data Nascimento - " + assistidoEscolhido.getDataNasc());
+        System.out.println("3. CPF  - " + assistidoEscolhido.getCPF());
 
         escolha = scanner.nextInt();
         scanner.nextLine();
@@ -159,11 +161,11 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Insira o novo RG");
-                assistidoEscolhido.setRg(scanner.nextLine());
+                assistidoEscolhido.setDataNasc(scanner.nextLine());
                 break;
             case 3:
                 System.out.println("Insira o novo CPF");
-                assistidoEscolhido.setCpf(scanner.nextLine());
+                assistidoEscolhido.setCPF(scanner.nextLine());
                 break;
         }
     }

@@ -15,8 +15,10 @@ public class Utils {
     }
 
     static void pause() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("\n\nPressione enter para continuar... ");
         scanner.nextLine();
+        
     }
 }

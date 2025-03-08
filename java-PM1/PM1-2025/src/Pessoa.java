@@ -1,36 +1,46 @@
 abstract class Pessoa {
     protected String nome;
-    protected String rg;
-    protected String cpf;
+    protected String dataNasc;
+    protected String CPF;
+    protected String CEP;
 
-    public Pessoa(String nome, String rg, String cpf) {
+    public Pessoa(String nome, String dataNasc, String CPF, String CEP) {
         this.nome = nome;
-        this.rg = rg;
-        this.cpf = cpf;
+        this.dataNasc = dataNasc;
+        this.CPF = CPF;
+        this.CEP = CEP;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getRg() {
-        return rg;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public void setRg(String rg) {
-        this.rg = rg;
+    
+    public String getDataNasc() {
+        return dataNasc;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String cPF) {
+        CPF = cPF;
+    }
+
+    public String getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(String cEP) {
+        CEP = cEP;
     }
 
     public abstract void exibirInformacoes();
