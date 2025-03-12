@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 abstract class Pessoa {
@@ -21,8 +22,12 @@ abstract class Pessoa {
         this.nome = nome;
     }
     
-    public Date getDataNasc() {
-        return dataNasc;
+    public String getDataNasc() {
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormt = formato.format(dataNasc);
+
+        return dataFormt;
     }
 
     public void setDataNasc(Date dataNasc) {
