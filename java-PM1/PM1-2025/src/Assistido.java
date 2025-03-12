@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ class Assistido extends Pessoa {
     private LocalDate dataSaida;
     private List<Comparecimento> atividades;
 
-    public Assistido(String nome, String dataNasc, String CPF, String CEP, String historicoCriminal, LocalDate dataEntrada) {
+    public Assistido(String nome, Date dataNasc, String CPF, String CEP, String historicoCriminal, LocalDate dataEntrada) {
         super(nome, dataNasc, CPF, CEP);
         this.historicoCriminal = historicoCriminal;
         this.dataEntrada = dataEntrada;

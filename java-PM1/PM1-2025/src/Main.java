@@ -1,7 +1,10 @@
+
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Main {
     private static List<Assistido> assistidos = new ArrayList<>();
@@ -23,7 +26,7 @@ public class Main {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            Utils.limpaTela();            
+            Utils.limpaTela();
             switch (opcao) {
                 case 1 -> cadastrarAssistido();
                 case 2 -> registrarComparecimento();
@@ -49,14 +52,24 @@ public class Main {
     private static void cadastrarAssistido() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
-        System.out.print("Data Nascimento: ");
-        String dataNasc = scanner.nextLine();
+        System.out.print("<<Data Nascimento>>\n");
+        System.out.print("Digite o dia: ");
+        int dia = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Digite o mês: ");
+        int mes = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Digite o ano: ");
+        int ano = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("CPF: ");
         String CPF = scanner.nextLine();
         System.out.print("CEP: ");
         String CEP = scanner.nextLine();
         System.out.print("Histórico Criminal: ");
         String historico = scanner.nextLine();
+
+        Date dataNasc = formatarData(dia,mes,ano);
 
         Assistido assistido = new Assistido(nome, dataNasc, CPF, CEP, historico, LocalDate.now());
         assistidos.add(assistido);
@@ -159,10 +172,10 @@ public class Main {
                 System.out.println("Insira o novo nome");
                 assistidoEscolhido.setNome(scanner.nextLine());
                 break;
-            case 2:
-                System.out.println("Insira o novo RG");
+            /*case 2:
+                System.out.println("Insira a nova data de nascimento");
                 assistidoEscolhido.setDataNasc(scanner.nextLine());
-                break;
+                break;*/
             case 3:
                 System.out.println("Insira o novo CPF");
                 assistidoEscolhido.setCPF(scanner.nextLine());
@@ -200,5 +213,19 @@ public class Main {
     private static void gerarRelatorio() {
         System.out.println("Relatório ainda em desenvolvimento...");
         Utils.delay(1);
+    }
+
+    private static Date formatarData(int dia, int mes, int ano){
+
+        Calendar calendario = Calendar.getInstance();
+
+        calendario.set(Calendar.YEAR, ano);
+        calendario.set(Calendar.MONTH, mes-1); // Mês começa em 0
+        calendario.set(Calendar.DAY_OF_MONTH, dia);
+
+        Date dataNasc = calendario.getTime();
+
+        return dataNasc;
+        
     }
 }
