@@ -211,8 +211,33 @@ public class Main {
 
 
     private static void gerarRelatorio() {
-        System.out.println("Relatório ainda em desenvolvimento...");
-        Utils.delay(1);
+        Utils.limpaTela();
+
+        for(Assistido assistidoAtual : assistidos) {
+            System.out.println("----+----+----+----+----");
+            System.out.println("INFORMAÇÔES\n");
+            System.out.println("Nome: " + assistidoAtual.getNome());
+            System.out.println("Data de nascimento: " + assistidoAtual.getDataNasc());
+            System.out.println("CPF: " + assistidoAtual.getCPF());
+            System.out.println("CEP: " + assistidoAtual.getCEP());
+
+            System.out.println("\n\nHISTÓRICO\n");
+            if (assistidoAtual.getAtividades().isEmpty()) {
+                System.out.println("O assistido não possui histórico de comparecimento\n");
+                continue;
+            }
+            
+            for(Comparecimento atividade : assistidoAtual.getAtividades()) {
+                System.out.println("-");
+                System.out.println("Descrição: " + atividade.getDescricao());
+                System.out.println("Data: " + atividade.getData());
+                System.out.println(atividade.isCompareceu() ? "Compareceu" : "Não compareceu");
+                System.out.println("-\n");
+            }
+
+            System.out.println("\n");
+        }
+        Utils.pause();
     }
 
     private static Date formatarData(int dia, int mes, int ano){
