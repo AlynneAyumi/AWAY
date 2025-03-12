@@ -1,10 +1,12 @@
+import java.util.Date;
+
 abstract class Pessoa {
     protected String nome;
-    protected String dataNasc;
+    protected Date dataNasc;
     protected String CPF;
     protected String CEP;
 
-    public Pessoa(String nome, String dataNasc, String CPF, String CEP) {
+    public Pessoa(String nome, Date dataNasc, String CPF, String CEP) {
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.CPF = CPF;
@@ -19,11 +21,11 @@ abstract class Pessoa {
         this.nome = nome;
     }
     
-    public String getDataNasc() {
+    public Date getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(String dataNasc) {
+    public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
 
