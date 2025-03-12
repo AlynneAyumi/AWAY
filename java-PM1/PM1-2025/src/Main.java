@@ -8,29 +8,31 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Main main = new Main();
+        
         while (true) {
             Utils.limpaTela();
             System.out.println("\n<<<<< MENU PRINCIPAL >>>>>");
             System.out.println("1. Cadastrar Assistido");
             System.out.println("2. Registrar Comparecimento");
             System.out.println("3. Exibir Assistidos");
-            System.out.println("4. Editar informações");
+            System.out.println("4. Editar informacoes");
             System.out.println("5. Remover Assistido");
-            System.out.println("6. Gerar Relatório");
+            System.out.println("6. Gerar Relatorio");
             System.out.println("7. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
 
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            Utils.limpaTela();            
+            Utils.limpaTela();
             switch (opcao) {
-                case 1 -> cadastrarAssistido();
-                case 2 -> registrarComparecimento();
-                case 3 -> exibirAssistidos();
-                case 4 -> editarInformacoes();
-                case 5 -> removerAssistido();
-                case 6 -> gerarRelatorio();
+                case 1 -> main.cadastrarAssistido();
+                case 2 -> main.registrarComparecimento();
+                case 3 -> main.exibirAssistidos();
+                case 4 -> main.editarInformacoes();
+                case 5 -> main.removerAssistido();
+                case 6 -> main.gerarRelatorio();
                 case 7 -> {
                     System.out.println("\nSaindo...");
                     Utils.delay(1);
@@ -38,7 +40,7 @@ public class Main {
                     return;
                 }
                 default -> {
-                    System.out.println("\nOpção inválida!");
+                    System.out.println("\nOpcao invalida!");
                     Utils.delay(1);
                 }
             }
@@ -46,7 +48,7 @@ public class Main {
     }
 
 
-    private static void cadastrarAssistido() {
+    private void cadastrarAssistido() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Data Nascimento: ");
@@ -55,7 +57,7 @@ public class Main {
         String CPF = scanner.nextLine();
         System.out.print("CEP: ");
         String CEP = scanner.nextLine();
-        System.out.print("Histórico Criminal: ");
+        System.out.print("Historico Criminal: ");
         String historico = scanner.nextLine();
 
         Assistido assistido = new Assistido(nome, dataNasc, CPF, CEP, historico, LocalDate.now());
@@ -65,7 +67,7 @@ public class Main {
     }
 
 
-    private static void registrarComparecimento() {
+    private void registrarComparecimento() {
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -81,13 +83,13 @@ public class Main {
         scanner.nextLine();
 
         if (escolha < 0 || escolha >= assistidos.size()) {
-            System.out.println("\nEscolha inválida.");
+            System.out.println("\nEscolha invalida.");
             Utils.delay(1);
             return;
         }
         Utils.limpaTela();
 
-        System.out.print("Descrição da atividade: ");
+        System.out.print("Descricao da atividade: ");
         String descricao = scanner.nextLine();
 
         System.out.print("O assistido compareceu? (true/false): ");
@@ -101,7 +103,7 @@ public class Main {
     }
 
 
-    private static void exibirAssistidos() {
+    private void exibirAssistidos() {
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -115,7 +117,7 @@ public class Main {
     }
 
 
-    private static void editarInformacoes() {
+    private void editarInformacoes() {
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -131,7 +133,7 @@ public class Main {
         scanner.nextLine();
 
         if (escolha < 0 || escolha > assistidos.size()) {
-            System.out.println("Escolha inválida.");
+            System.out.println("Escolha invalida.");
             Utils.delay(1);
             return;
         }           
@@ -139,7 +141,7 @@ public class Main {
         Assistido assistidoEscolhido = assistidos.get(escolha);
 
         Utils.limpaTela();
-        System.out.println("Selecione qual informação deseja editar:");
+        System.out.println("Selecione qual informacao deseja editar:");
         System.out.println("1. Nome - " + assistidoEscolhido.getNome());
         System.out.println("2. Data Nascimento - " + assistidoEscolhido.getDataNasc());
         System.out.println("3. CPF  - " + assistidoEscolhido.getCPF());
@@ -148,7 +150,7 @@ public class Main {
         scanner.nextLine();
 
         if (escolha < 1 || escolha > 3) {
-            System.out.println("Escolha inválida.");
+            System.out.println("Escolha invalida.");
             Utils.delay(1);
             return;
         }
@@ -171,7 +173,7 @@ public class Main {
     }
 
 
-    private static void removerAssistido() {
+    private void removerAssistido() {
         if (assistidos.isEmpty()) {
             System.out.println("Nenhum assistido cadastrado.");
             Utils.delay(1);
@@ -191,34 +193,34 @@ public class Main {
             assistidos.remove(escolha);
             Utils.delay(1);
         } else {
-            System.out.println("Escolha inválida.");
+            System.out.println("Escolha invalida.");
             Utils.delay(1);
         }
     }
 
 
-    private static void gerarRelatorio() {
+    private void gerarRelatorio() {
         Utils.limpaTela();
 
         for(Assistido assistidoAtual : assistidos) {
             System.out.println("----+----+----+----+----");
-            System.out.println("INFORMAÇÔES\n");
+            System.out.println("INFORMACOES\n");
             System.out.println("Nome: " + assistidoAtual.getNome());
             System.out.println("Data de nascimento: " + assistidoAtual.getDataNasc());
             System.out.println("CPF: " + assistidoAtual.getCPF());
             System.out.println("CEP: " + assistidoAtual.getCEP());
 
-            System.out.println("\n\nHISTÓRICO\n");
+            System.out.println("\n\nHISTORICO\n");
             if (assistidoAtual.getAtividades().isEmpty()) {
-                System.out.println("O assistido não possui histórico de comparecimento\n");
+                System.out.println("O assistido nao possui historico de comparecimento\n");
                 continue;
             }
             
             for(Comparecimento atividade : assistidoAtual.getAtividades()) {
                 System.out.println("-");
-                System.out.println("Descrição: " + atividade.getDescricao());
+                System.out.println("Descricao: " + atividade.getDescricao());
                 System.out.println("Data: " + atividade.getData());
-                System.out.println(atividade.isCompareceu() ? "Compareceu" : "Não compareceu");
+                System.out.println(atividade.isCompareceu() ? "Compareceu" : "Nao compareceu");
                 System.out.println("-\n");
             }
 

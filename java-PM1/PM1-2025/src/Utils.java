@@ -7,11 +7,9 @@ public class Utils {
             String sistemaOperacional = System.getProperty("os.name");
 
             if (sistemaOperacional.contains("Windows")) {
-                // Limpa a tela no Windows
                 ProcessBuilder builder = new ProcessBuilder("cmd", "/c", "cls");
                 builder.inheritIO().start().waitFor();
             } else {
-                // Limpa a tela no Linux/Mac
                 ProcessBuilder builder = new ProcessBuilder("clear");
                 builder.inheritIO().start().waitFor();
             }
