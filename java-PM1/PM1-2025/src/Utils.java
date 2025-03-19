@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Utils {
@@ -31,6 +33,20 @@ public class Utils {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\n\nPressione enter para continuar... ");
         scanner.nextLine();
+        
+    }
+
+    static Date formatarData(int dia, int mes, int ano){
+
+        Calendar calendario = Calendar.getInstance();
+
+        calendario.set(Calendar.YEAR, ano);
+        calendario.set(Calendar.MONTH, mes-1); // Mês começa em 0
+        calendario.set(Calendar.DAY_OF_MONTH, dia);
+
+        Date dataNasc = calendario.getTime();
+
+        return dataNasc;
         
     }
 }

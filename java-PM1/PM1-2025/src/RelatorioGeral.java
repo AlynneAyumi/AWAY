@@ -1,3 +1,5 @@
+import java.util.List;
+
 interface RelatorioGeral {
-    void gerarRelatorio();
+    void gerarRelatorio(List<Assistido> assistidos);
 }
