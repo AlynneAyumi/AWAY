@@ -1,9 +1,9 @@
-package com.example.away.Model;
+package com.example.away.model;
 
 import java.time.LocalDate;
 
-public class TipoMonitoramento {
-    private Long idTipoMonit;
+public class TipoSituacao {
+    private Long idTipoSituacao;
     private String createdBy;
     private LocalDate creationDate;
     private String descricao;
@@ -11,11 +11,11 @@ public class TipoMonitoramento {
     private String lastUpdateBy;
     private LocalDate lastUpdateDate;
 
-    public Long getIdTipoMonit() {
-        return idTipoMonit;
+    public Long getIdTipoSituacao() {
+        return idTipoSituacao;
     }
-    public void setIdTipoMonit(Long idTipoMonit) {
-        this.idTipoMonit = idTipoMonit;
+    public void setIdTipoSituacao(Long idTipoSituacao) {
+        this.idTipoSituacao = idTipoSituacao;
     }
 
     public String getCreatedBy() {
@@ -59,4 +59,5 @@ public class TipoMonitoramento {
     public void setLastUpdateDate(LocalDate lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
+
 }

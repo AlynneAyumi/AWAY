@@ -1,23 +1,21 @@
-package com.example.away.Model;
+package com.example.away.model;
 
 import java.time.LocalDate;
 
-public class TipoRegime {
-    private Long idTipoRegime;
-    private String createdBy; //creationBy
+public class TipoMonitoramento {
+    private Long idTipoMonit;
+    private String createdBy;
     private LocalDate creationDate;
     private String descricao;
     private Boolean flagAtivo;
     private String lastUpdateBy;
     private LocalDate lastUpdateDate;
 
-    //Getter e Setter
-
-    public Long getIdTipoRegime() {
-        return idTipoRegime;
+    public Long getIdTipoMonit() {
+        return idTipoMonit;
     }
-    public void setIdTipoRegime(Long idTipoRegime) {
-        this.idTipoRegime = idTipoRegime;
+    public void setIdTipoMonit(Long idTipoMonit) {
+        this.idTipoMonit = idTipoMonit;
     }
 
     public String getCreatedBy() {
@@ -61,5 +59,4 @@ public class TipoRegime {
     public void setLastUpdateDate(LocalDate lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
-
 }

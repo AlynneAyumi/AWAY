@@ -1,4 +1,4 @@
-package com.example.away.Model;
+package com.example.away.model;
 
 public class Endereco {
     private Long id;

@@ -1,4 +1,4 @@
-package com.example.away.Model;
+package com.example.away.model;
 
 import java.time.LocalDate;
 
