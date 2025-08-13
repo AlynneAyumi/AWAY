@@ -1,21 +1,32 @@
 package com.example.away.model;
 
-import jakarta.persistence.Entity;
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.*;
 
+@Data
+@Entity
+@Table(name = "assistido")
 public class Assistido {
-        private Long idAssistido;
-        private String createdBy;
-        private LocalDate creationDate;
-        private LocalDate data;
-        private String lastUpdateBy;
-        private LocalDate lastUpdateDate;
-        private String numAuto;
-        private String numProcesso;
-        private String observacao;
-        private Long idTipoMonitoramento;
-        private Long idTipoRegime;
-        private Long idTipoSituacao;
-        private Long idVaraExecPenal;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long    idAssistido; // Primary Key
+
+    private Date    data;
+    private String  numAuto;
+    private String  numProcesso;
+    private String  observacao;
+
+    // Campos para Auditoria
+    private Integer createdBy;
+    private Date    creationDate;
+    private Integer lastUpdatedBy;
+    private Date    lastUpdateDate;
+
+    // Foreign Key's
+    private Long idTipoMonitoramento;
+    private Long idTipoRegime;
+    private Long idTipoSituacao;
+    private Long idVaraExecPenal;
 }

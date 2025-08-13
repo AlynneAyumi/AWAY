@@ -1,63 +1,29 @@
 package com.example.away.model;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.*;
+
+@Data
+@Entity
+@Table(name = "endereco")
 public class Endereco {
-    private Long id;
-    private String bairro;
-    private String cep;    // String para manter zeros a esquerda
-    private String cidade;
-    private String estado;
-    private int numero;
-    private String rua;
 
-    //Getters e Setters
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long    idEndereco; // Primary Key
 
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String  bairro;
+    private String  cep;
+    private String  cidade;
+    private String  estado;
+    private Integer numero;
+    private String  rua;
 
-    public String getBairro() {
-        return bairro;
-    }
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
+    // Campos para Auditoria
+    private Integer createdBy;
+    private Date    creationDate;
+    private Integer lastUpdatedBy;
+    private Date    lastUpdateDate;
 
 }

@@ -1,65 +1,31 @@
 package com.example.away.model;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.*;
 
+@Data
+@Entity
+@Table(name = "pessoa")
 public class Pessoa {
-    private Long id;
-    private String cpf;
-    private LocalDate dataNascimento;
-    private String nome;
-    private String telefone;
-    private Long idEndereco;
-    private String segundoNome;
 
-    //Getters e Setters
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long    idPessoa; // Primary Key
 
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String  cpf;
+    private Date    dataNascimento;
+    private String  nome;
+    private String  telefone;
+    private String  segundoNome;
 
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+    // Campos para Auditoria
+    private Integer createdBy;
+    private Date    creationDate;
+    private Integer lastUpdatedBy;
+    private Date    lastUpdateDate;
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public Long getIdEndereco() {
-        return idEndereco;
-    }
-    public void setIdEndereco(Long idEndereco) {
-        this.idEndereco = idEndereco;
-    }
-
-    public String getSegundoNome() {
-        return segundoNome;
-    }
-    public void setSegundoNome(String segundoNome) {
-        this.segundoNome = segundoNome;
-    }
+    // Foreign Key
+    private Long    idEndereco;
 
 }
