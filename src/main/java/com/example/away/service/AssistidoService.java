@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Assistido;
 import com.example.away.repository.AssistidoRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class AssistidoService {
@@ -16,5 +17,21 @@ public class AssistidoService {
     
     public List<Assistido> findAll() {
         return assistidoRepository.findAll();
+    }
+
+    public Assistido findById(Long id) {
+        return assistidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
+    }
+
+    public Assistido save(Assistido assistido) {
+        return assistidoRepository.save(assistido);
+    }
+
+    public Assistido update(Long id, Assistido assistido) {
+        Assistido update = findById(id);
+
+        // TODO: Formular as validações
+
+        return assistidoRepository.save(update);
     }
 }
