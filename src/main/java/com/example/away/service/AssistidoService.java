@@ -34,4 +34,9 @@ public class AssistidoService {
 
         return assistidoRepository.save(update);
     }
+
+    public void delete(Long id) {
+        Assistido assistido = findById(id);
+        assistidoRepository.delete(assistido);
+    }
 }
