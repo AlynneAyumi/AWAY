@@ -22,4 +22,7 @@ public class TipoMonitoramento {
     private Integer lastUpdatedBy;
     private Date    lastUpdateDate;
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "assistido")
+    private Assistido assistido;
+
 }

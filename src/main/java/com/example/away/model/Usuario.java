@@ -22,9 +22,10 @@ public class Usuario {
     private Date    creationDate;
     private Integer lastUpdatedBy;
     private Date    lastUpdateDate;
+    private Integer TipoAcesso;
 
     // Foreign Key's
-    private Integer TipoAcesso;
-    private Long    idPessoa;
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "pessoa")
+    private Pessoa pessoa;
 
 }

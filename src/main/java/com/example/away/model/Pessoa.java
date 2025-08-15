@@ -26,6 +26,16 @@ public class Pessoa {
     private Date    lastUpdateDate;
 
     // Foreign Key
-    private Long    idEndereco;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idEndereco")
+    private Endereco endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAssistido")
+    private Assistido assistido;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
 }

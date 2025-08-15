@@ -23,6 +23,8 @@ public class Comparecimento {
     private Date    lastUpdateDate;
 
     // Foreign Key
-    private Long    idAssistido;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAssistido")
+    private Assistido assistido;
 
 }
