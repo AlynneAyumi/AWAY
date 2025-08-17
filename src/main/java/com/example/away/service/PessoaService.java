@@ -1,6 +1,6 @@
 package com.example.away.service;
 
-import java.util.List;
+import java.util.*;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Pessoa;
 import com.example.away.repository.PessoaRepository;
@@ -38,5 +38,13 @@ public class PessoaService {
     public void delete(Long id) {
         Pessoa pessoa = findById(id);
         pessoaRepository.delete(pessoa);
+    }
+
+
+    // Demais métodos personalizados
+
+    public Pessoa buscarPessoaPorCpf(String cpf) {
+        return pessoaRepository.findByCpfComJPQL(cpf)
+                .orElseThrow(() -> new NoSuchElementException("Pessoa com CPF " + cpf + " não encontrada."));
     }
 }
