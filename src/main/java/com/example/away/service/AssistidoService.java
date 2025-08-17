@@ -30,7 +30,18 @@ public class AssistidoService {
     public Assistido update(Long id, Assistido assistido) {
         Assistido update = findById(id);
 
-        // TODO: Formular as validações
+
+        /*
+        if(carro.getNome() != null && !carro.getNome().isBlank()){
+            update.setNome(carro.getNome());
+        }
+        if (carro.getMarca() != null && !carro.getMarca().isBlank()) {
+            update.setMarca(carro.getMarca());
+        }
+        if(carro.getModelo() != null && !carro.getModelo().isBlank()){
+            update.setModelo(carro.getModelo());
+        }
+        */
 
         return assistidoRepository.save(update);
     }

@@ -26,7 +26,7 @@ public class Endereco {
     private Integer lastUpdatedBy;
     private Date    lastUpdateDate;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pessoa")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "endereco")
     private List<Pessoa> pessoas;
 
 }

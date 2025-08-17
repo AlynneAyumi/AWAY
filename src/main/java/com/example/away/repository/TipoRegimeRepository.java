@@ -3,5 +3,5 @@ package com.example.away.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.away.model.TipoRegime;
 
-public interface TipoRegimeRespository extends JpaRepository<TipoRegime, Long>{
+public interface TipoRegimeRepository extends JpaRepository<TipoRegime, Long>{
 }

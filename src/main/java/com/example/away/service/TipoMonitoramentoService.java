@@ -3,15 +3,15 @@ package com.example.away.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.TipoMonitoramento;
-import com.example.away.repository.TipoMonitoramentoRespository;
+import com.example.away.repository.TipoMonitoramentoRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TipoMonitoramentoService {
     
-    private final TipoMonitoramentoRespository monitoramentoRepository;
+    private final TipoMonitoramentoRepository monitoramentoRepository;
 
-    public TipoMonitoramentoService(TipoMonitoramentoRespository monitoramentoRepository) {
+    public TipoMonitoramentoService(TipoMonitoramentoRepository monitoramentoRepository) {
         this.monitoramentoRepository = monitoramentoRepository;
     }
     
@@ -33,5 +33,10 @@ public class TipoMonitoramentoService {
         // TODO: Formular as validações
 
         return monitoramentoRepository.save(update);
+    }
+
+    public void delete(Long id) {
+        TipoMonitoramento tipoMonitoramento = findById(id);
+        monitoramentoRepository.delete(tipoMonitoramento);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.away.service;
 
 import java.util.List;
+
+import com.example.away.model.Endereco;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Comparecimento;
 import com.example.away.repository.ComparecimentoRepository;
@@ -33,5 +35,10 @@ public class ComparecimentoService {
         // TODO: Formular as validações
 
         return comparecimentoRepository.save(update);
+    }
+
+    public void delete(Long id) {
+        Comparecimento comparecimento = findById(id);
+        comparecimentoRepository.delete(comparecimento);
     }
 }

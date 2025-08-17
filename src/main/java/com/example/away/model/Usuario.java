@@ -25,7 +25,7 @@ public class Usuario {
     private Integer TipoAcesso;
 
     // Foreign Key's
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "pessoa")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "usuario")
     private Pessoa pessoa;
 
 }

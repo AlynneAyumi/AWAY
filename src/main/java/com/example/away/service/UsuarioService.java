@@ -34,4 +34,9 @@ public class UsuarioService {
 
         return usuarioRepository.save(update);
     }
+
+    public void delete(Long id) {
+        Usuario usuario = findById(id);
+        usuarioRepository.delete(usuario);
+    }
 }

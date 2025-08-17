@@ -25,7 +25,7 @@ public class Assistido {
     private Date    lastUpdateDate;
 
     // Foreign Key's
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "pessoa")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "assistido")
     private Pessoa pessoa;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "assistido")

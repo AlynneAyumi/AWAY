@@ -4,17 +4,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.away.model.TipoRegime;
-import com.example.away.model.TipoRegime;
-import com.example.away.repository.TipoRegimeRespository;
+import com.example.away.repository.TipoRegimeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TipoRegimeService {
     
-    private final TipoRegimeRespository regimeRepository;
+    private final TipoRegimeRepository regimeRepository;
 
-    public TipoRegimeService(TipoRegimeRespository regimeRepository) {
+    public TipoRegimeService(TipoRegimeRepository regimeRepository) {
         this.regimeRepository = regimeRepository;
     }
     
@@ -36,5 +35,10 @@ public class TipoRegimeService {
         // TODO: Formular as validações
 
         return regimeRepository.save(update);
+    }
+
+    public void delete(Long id) {
+        TipoRegime tipoRegime = findById(id);
+        regimeRepository.delete(tipoRegime);
     }
 }

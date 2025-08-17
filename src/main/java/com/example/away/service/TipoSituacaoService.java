@@ -3,16 +3,16 @@ package com.example.away.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.TipoSituacao;
-import com.example.away.repository.TipoSituacaoRespository;
+import com.example.away.repository.TipoSituacaoRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TipoSituacaoService {
     
-    private final TipoSituacaoRespository situacaoRepository;
+    private final TipoSituacaoRepository situacaoRepository;
 
-    public TipoSituacaoService(TipoSituacaoRespository situacaoRepository) {
+    public TipoSituacaoService(TipoSituacaoRepository situacaoRepository) {
         this.situacaoRepository = situacaoRepository;
     }
     
@@ -34,5 +34,10 @@ public class TipoSituacaoService {
         // TODO: Formular as validações
 
         return situacaoRepository.save(update);
+    }
+
+    public void delete(Long id) {
+        TipoSituacao tipoSituacao = findById(id);
+        situacaoRepository.delete(tipoSituacao);
     }
 }
