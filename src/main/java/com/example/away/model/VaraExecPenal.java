@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,8 +14,11 @@ public class VaraExecPenal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idVaraExecPenal; // Primary Key
 
-    private String  descricao;
+    @NotEmpty(message = "Nome da Vara de Execução Penal é obrigatório")
     private String  nome;
+
+    private String  descricao;
+
 
     // Campos para Auditoria
     private Integer createdBy;

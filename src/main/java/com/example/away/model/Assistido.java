@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,7 +14,6 @@ public class Assistido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idAssistido; // Primary Key
 
-    private Date    data;
     private String  numAuto;
     private String  numProcesso;
     private String  observacao;

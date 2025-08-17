@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,6 +14,7 @@ public class Comparecimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idComparecimento; // Primary Key
 
+    @NotEmpty(message = "Data do Comparecimento é obrigatório")
     private Date    data;
     private Boolean flagComparecimento;
 

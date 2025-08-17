@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,8 +14,13 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idUsuario; // Primary Key
 
+    @NotEmpty(message = "E-mail é obrigatório")
     private String  email;
+
+    @NotEmpty(message = "Nome do Usuário é obrigatório")
     private String  nomeUser;
+
+    @NotEmpty(message = "A senha é obrigatória")
     private String  senha;
 
     // Campos para Auditoria

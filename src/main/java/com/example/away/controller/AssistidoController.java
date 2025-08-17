@@ -1,5 +1,6 @@
 package com.example.away.controller;
 
+import jakarta.validation.*;
 import org.springframework.web.bind.annotation.*;
 import com.example.away.model.Assistido;
 import com.example.away.service.AssistidoService;
@@ -27,7 +28,7 @@ public class AssistidoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Assistido> save(@RequestBody Assistido assistido) {
+    public ResponseEntity<Assistido> save(@Valid @RequestBody Assistido assistido) {
         try {
             var result = assistidoService.save(assistido);
 
@@ -59,7 +60,7 @@ public class AssistidoController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Assistido> update(@PathVariable Long id,
-                                            @RequestBody Assistido assistidoUpdate) {
+                                            @Valid @RequestBody Assistido assistidoUpdate) {
         try {
             var result = assistidoService.update(id, assistidoUpdate);
             return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
