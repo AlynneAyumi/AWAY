@@ -1,10 +1,9 @@
 package com.example.away.service;
 
 import java.util.*;
-
+import com.example.away.service.UtilService.*;
 import com.example.away.model.Pessoa;
 import com.example.away.repository.PessoaRepository;
-
 import org.springframework.stereotype.Service;
 import com.example.away.model.Assistido;
 import com.example.away.repository.AssistidoRepository;
@@ -28,9 +27,11 @@ public class AssistidoService {
     }
 
     public Assistido save(Assistido assistido) {
+        Date hoje = UtilService.getDataAtual();
 
-
-        // Se a verificação passar, salva o novo assistido
+        assistido.setCreatedBy(1);
+        assistido.setCreationDate(hoje);
+        
         return assistidoRepository.save(assistido);
     }
 
@@ -49,6 +50,9 @@ public class AssistidoService {
             update.setModelo(carro.getModelo());
         }
         */
+        
+        Date hoje = UtilService.getDataAtual();
+        assistido.setLastUpdateDate(hoje);
 
         return assistidoRepository.save(update);
     }

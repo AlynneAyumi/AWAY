@@ -1,5 +1,6 @@
 package com.example.away.service;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Endereco;
@@ -24,6 +25,11 @@ public class EnderecoService {
     }
 
     public Endereco save(Endereco endereco) {
+        Date hoje = UtilService.getDataAtual();
+
+        endereco.setCreatedBy(1);
+        endereco.setCreationDate(hoje);
+
         return enderecoRepository.save(endereco);
     }
 
@@ -31,6 +37,9 @@ public class EnderecoService {
         Endereco update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        endereco.setLastUpdateDate(hoje);
 
         return enderecoRepository.save(update);
     }

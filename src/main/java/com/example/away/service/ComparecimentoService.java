@@ -1,5 +1,6 @@
 package com.example.away.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.example.away.model.Endereco;
@@ -26,6 +27,11 @@ public class ComparecimentoService {
     }
 
     public Comparecimento save(Comparecimento comparecimento) {
+        Date hoje = UtilService.getDataAtual();
+
+        comparecimento.setCreatedBy(1);
+        comparecimento.setCreationDate(hoje);
+
         return comparecimentoRepository.save(comparecimento);
     }
 
@@ -33,6 +39,9 @@ public class ComparecimentoService {
         Comparecimento update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        comparecimento.setLastUpdateDate(hoje);
 
         return comparecimentoRepository.save(update);
     }

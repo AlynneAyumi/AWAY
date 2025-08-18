@@ -1,5 +1,6 @@
 package com.example.away.service;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.TipoMonitoramento;
@@ -24,6 +25,11 @@ public class TipoMonitoramentoService {
     }
 
     public TipoMonitoramento save(TipoMonitoramento monitoramento) {
+        Date hoje = UtilService.getDataAtual();
+
+        monitoramento.setCreatedBy(1);
+        monitoramento.setCreationDate(hoje);
+
         return monitoramentoRepository.save(monitoramento);
     }
 
@@ -31,6 +37,9 @@ public class TipoMonitoramentoService {
         TipoMonitoramento update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        monitoramento.setLastUpdateDate(hoje);
 
         return monitoramentoRepository.save(update);
     }

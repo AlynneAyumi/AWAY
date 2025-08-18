@@ -24,6 +24,11 @@ public class PessoaService {
     }
 
     public Pessoa save(Pessoa pessoa) {
+        Date hoje = UtilService.getDataAtual();
+
+        pessoa.setCreatedBy(1);
+        pessoa.setCreationDate(hoje);
+
         return pessoaRepository.save(pessoa);
     }
 
@@ -31,6 +36,9 @@ public class PessoaService {
         Pessoa update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        pessoa.setLastUpdateDate(hoje);
 
         return pessoaRepository.save(update);
     }

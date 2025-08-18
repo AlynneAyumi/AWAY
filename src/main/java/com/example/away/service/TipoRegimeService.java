@@ -1,5 +1,6 @@
 package com.example.away.service;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,11 @@ public class TipoRegimeService {
     }
 
     public TipoRegime save(TipoRegime regime) {
+        Date hoje = UtilService.getDataAtual();
+
+        regime.setCreatedBy(1);
+        regime.setCreationDate(hoje); 
+        
         return regimeRepository.save(regime);
     }
 
@@ -33,6 +39,9 @@ public class TipoRegimeService {
         TipoRegime update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        regime.setLastUpdateDate(hoje);
 
         return regimeRepository.save(update);
     }

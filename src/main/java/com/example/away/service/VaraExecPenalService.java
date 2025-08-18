@@ -1,5 +1,6 @@
 package com.example.away.service;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.VaraExecPenal;
@@ -24,6 +25,11 @@ public class VaraExecPenalService {
     }
 
     public VaraExecPenal save(VaraExecPenal varaPenal) {
+        Date hoje = UtilService.getDataAtual();
+
+        varaPenal.setCreatedBy(1);
+        varaPenal.setCreationDate(hoje);
+
         return varaPenalRepository.save(varaPenal);
     }
 
@@ -31,6 +37,9 @@ public class VaraExecPenalService {
         VaraExecPenal update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        varaPenal.setLastUpdateDate(hoje);
 
         return varaPenalRepository.save(update);
     }

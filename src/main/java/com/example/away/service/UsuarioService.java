@@ -1,5 +1,6 @@
 package com.example.away.service;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Usuario;
@@ -24,6 +25,11 @@ public class UsuarioService {
     }
 
     public Usuario save(Usuario usuario) {
+        Date hoje = UtilService.getDataAtual();
+
+        usuario.setCreatedBy(1);
+        usuario.setCreationDate(hoje);
+
         return usuarioRepository.save(usuario);
     }
 
@@ -31,6 +37,9 @@ public class UsuarioService {
         Usuario update = findById(id);
 
         // TODO: Formular as validações
+
+        Date hoje = UtilService.getDataAtual();
+        usuario.setLastUpdateDate(hoje);
 
         return usuarioRepository.save(update);
     }
