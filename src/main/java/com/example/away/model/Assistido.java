@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,7 +14,6 @@ public class Assistido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idAssistido; // Primary Key
 
-    private Date    data;
     private String  numAuto;
     private String  numProcesso;
     private String  observacao;
@@ -25,8 +25,26 @@ public class Assistido {
     private Date    lastUpdateDate;
 
     // Foreign Key's
-    private Long idTipoMonitoramento;
-    private Long idTipoRegime;
-    private Long idTipoSituacao;
-    private Long idVaraExecPenal;
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "assistido")
+    private Pessoa pessoa;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "assistido")
+    private List<Comparecimento> comparecimentos;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idTipoMonitoramento")
+    private TipoMonitoramento tipoMonitoramento;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idTipoRegime")
+    private TipoRegime tipoRegime;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idTipoSituacao")
+    private TipoSituacao tipoSituacao;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idVaraExecPenal")
+    private VaraExecPenal varaExecPenal;
+
 }

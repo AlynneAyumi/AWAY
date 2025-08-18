@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,6 +14,7 @@ public class TipoRegime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idTipoRegime; // Primary Key
 
+    @NotEmpty(message = "Tipo de Regime é obrigatório")
     private String  descricao;
     private Boolean flagAtivo;
 
@@ -22,4 +24,6 @@ public class TipoRegime {
     private Integer lastUpdatedBy;
     private Date    lastUpdateDate;
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "tipoRegime")
+    private Assistido assistido;
 }

@@ -1,6 +1,10 @@
 package com.example.away.service;
 
-import java.util.List;
+import java.util.*;
+
+import com.example.away.model.Pessoa;
+import com.example.away.repository.PessoaRepository;
+
 import org.springframework.stereotype.Service;
 import com.example.away.model.Assistido;
 import com.example.away.repository.AssistidoRepository;
@@ -24,14 +28,33 @@ public class AssistidoService {
     }
 
     public Assistido save(Assistido assistido) {
+
+
+        // Se a verificação passar, salva o novo assistido
         return assistidoRepository.save(assistido);
     }
 
     public Assistido update(Long id, Assistido assistido) {
         Assistido update = findById(id);
 
-        // TODO: Formular as validações
+
+        /*
+        if(carro.getNome() != null && !carro.getNome().isBlank()){
+            update.setNome(carro.getNome());
+        }
+        if (carro.getMarca() != null && !carro.getMarca().isBlank()) {
+            update.setMarca(carro.getMarca());
+        }
+        if(carro.getModelo() != null && !carro.getModelo().isBlank()){
+            update.setModelo(carro.getModelo());
+        }
+        */
 
         return assistidoRepository.save(update);
+    }
+
+    public void delete(Long id) {
+        Assistido assistido = findById(id);
+        assistidoRepository.delete(assistido);
     }
 }

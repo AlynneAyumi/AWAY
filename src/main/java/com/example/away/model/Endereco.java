@@ -1,6 +1,7 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -13,17 +14,32 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idEndereco; // Primary Key
 
-    private String  bairro;
+    @NotEmpty(message = "CEP é obrigatório")
     private String  cep;
+
+    @NotEmpty(message = "Bairro é obrigatório")
+    private String  bairro;
+
+    @NotEmpty(message = "Cidade é obrigatório")
     private String  cidade;
+
+    @NotEmpty(message = "Estado é obrigatório")
     private String  estado;
-    private Integer numero;
+
+    @NotEmpty(message = "Nome da Rua é obrigatório")
     private String  rua;
+
+    @NotEmpty(message = "Número da residência é obrigatório")
+    private Integer numero;
+
 
     // Campos para Auditoria
     private Integer createdBy;
     private Date    creationDate;
     private Integer lastUpdatedBy;
     private Date    lastUpdateDate;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "endereco")
+    private List<Pessoa> pessoas;
 
 }

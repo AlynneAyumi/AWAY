@@ -34,4 +34,9 @@ public class VaraExecPenalService {
 
         return varaPenalRepository.save(update);
     }
+
+    public void delete(Long id) {
+        VaraExecPenal varaExecPenal = findById(id);
+        varaPenalRepository.delete(varaExecPenal);
+    }
 }
