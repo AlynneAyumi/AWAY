@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.away.model.TipoSituacao;
 import com.example.away.repository.TipoSituacaoRespository;
-
 import jakarta.persistence.EntityNotFoundException;
 
 @Service

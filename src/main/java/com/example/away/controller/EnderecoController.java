@@ -2,8 +2,8 @@ package com.example.away.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.away.model.Assistido;
-import com.example.away.service.AssistidoService;
+import com.example.away.model.Endereco;
+import com.example.away.service.EnderecoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/assistido")
-public class AssistidoController {
+@RequestMapping("/endereco")
+public class EnderecoController {
     @Autowired
-    private AssistidoService assistidoService;
+    private EnderecoService enderecoService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Assistido>> findAll() {
+    public ResponseEntity<List<Endereco>> findAll() {
         try {
-            List<Assistido> response = assistidoService.findAll();
+            List<Endereco> response = enderecoService.findAll();
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
@@ -34,9 +34,9 @@ public class AssistidoController {
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Assistido> findById(@PathVariable Long id) {
+    public ResponseEntity<Endereco> findById(@PathVariable Long id) {
         try {
-            Assistido response = assistidoService.findById(id);
+            Endereco response = enderecoService.findById(id);
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (Exception e) {
@@ -45,9 +45,9 @@ public class AssistidoController {
     }
     
     @PostMapping("/save")
-    public ResponseEntity<Assistido> save(@RequestBody Assistido assistido) {
+    public ResponseEntity<Endereco> save(@RequestBody Endereco endereco) {
         try {
-            Assistido response = assistidoService.save(assistido);
+            Endereco response = enderecoService.save(endereco);
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
@@ -56,9 +56,9 @@ public class AssistidoController {
     }
     
     @PutMapping("update/{id}")
-    public ResponseEntity<Assistido> update(@PathVariable Long id, @RequestBody Assistido assistido) {
+    public ResponseEntity<Endereco> update(@PathVariable Long id, @RequestBody Endereco endereco) {
         try {
-            Assistido response = assistidoService.update(id, assistido);
+            Endereco response = enderecoService.update(id, endereco);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

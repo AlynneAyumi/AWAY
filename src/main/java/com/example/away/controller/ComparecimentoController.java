@@ -2,8 +2,8 @@ package com.example.away.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.away.model.Assistido;
-import com.example.away.service.AssistidoService;
+import com.example.away.model.Comparecimento;
+import com.example.away.service.ComparecimentoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/assistido")
-public class AssistidoController {
+@RequestMapping("/comparecimento")
+public class ComparecimentoController {
     @Autowired
-    private AssistidoService assistidoService;
+    private ComparecimentoService comparecimentoService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Assistido>> findAll() {
+    public ResponseEntity<List<Comparecimento>> findAll() {
         try {
-            List<Assistido> response = assistidoService.findAll();
+            List<Comparecimento> response = comparecimentoService.findAll();
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
@@ -34,9 +34,9 @@ public class AssistidoController {
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Assistido> findById(@PathVariable Long id) {
+    public ResponseEntity<Comparecimento> findById(@PathVariable Long id) {
         try {
-            Assistido response = assistidoService.findById(id);
+            Comparecimento response = comparecimentoService.findById(id);
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (Exception e) {
@@ -45,9 +45,9 @@ public class AssistidoController {
     }
     
     @PostMapping("/save")
-    public ResponseEntity<Assistido> save(@RequestBody Assistido assistido) {
+    public ResponseEntity<Comparecimento> save(@RequestBody Comparecimento comparecimento) {
         try {
-            Assistido response = assistidoService.save(assistido);
+            Comparecimento response = comparecimentoService.save(comparecimento);
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
@@ -56,9 +56,9 @@ public class AssistidoController {
     }
     
     @PutMapping("update/{id}")
-    public ResponseEntity<Assistido> update(@PathVariable Long id, @RequestBody Assistido assistido) {
+    public ResponseEntity<Comparecimento> update(@PathVariable Long id, @RequestBody Comparecimento comparecimento) {
         try {
-            Assistido response = assistidoService.update(id, assistido);
+            Comparecimento response = comparecimentoService.update(id, comparecimento);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

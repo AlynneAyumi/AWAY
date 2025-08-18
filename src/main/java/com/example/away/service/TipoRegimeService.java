@@ -2,11 +2,8 @@ package com.example.away.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-
-import com.example.away.model.TipoRegime;
 import com.example.away.model.TipoRegime;
 import com.example.away.repository.TipoRegimeRespository;
-
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
