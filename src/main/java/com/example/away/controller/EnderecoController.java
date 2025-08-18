@@ -64,5 +64,18 @@ public class EnderecoController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+
+    @GetMapping("/cep/{cep}")
+    public ResponseEntity<Endereco> buscarEnderecoPorCep(@PathVariable String cep) {
+        try {
+            Endereco endereco = enderecoService.buscarPorCep(cep);
+            return ResponseEntity.ok(endereco); // Retorna 200 OK com o objeto Endereco no corpo
+
+        } catch (IllegalArgumentException ex) {
+            // Captura a exceção e retorna 404 Not Found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
     
 }

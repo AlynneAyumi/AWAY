@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.away.model.Comparecimento;
 import com.example.away.service.ComparecimentoService;
-import java.util.List;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,6 +63,20 @@ public class ComparecimentoController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/dataComparecimento")
+    public ResponseEntity<List<Comparecimento>> buscarPorDataComparecimento(@PathVariable Date data) {
+
+        List<Comparecimento> comparecimentos = comparecimentoService.buscarPorDataComparecimento(data);
+
+        // Se a lista estiver vazia, retorna 404 Not Found.
+        if (comparecimentos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Se houver resultados, retorna 200 OK com a lista de produtos
+        return ResponseEntity.ok(comparecimentos);
     }
     
 }

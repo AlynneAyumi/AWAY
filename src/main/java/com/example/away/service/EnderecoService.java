@@ -1,7 +1,7 @@
 package com.example.away.service;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.*;
+
 import org.springframework.stereotype.Service;
 import com.example.away.model.Endereco;
 import com.example.away.repository.EnderecoRepository;
@@ -49,4 +49,17 @@ public class EnderecoService {
         enderecoRepository.delete(endereco);
     }
 
+
+    // Método automático de busca personalizada
+    public Endereco buscarPorCep(String cep) {
+
+        Optional<Endereco> enderecoOptional = enderecoRepository.findByCep(cep);
+
+        // Lança uma exceção se o endereço não for encontrado
+        if (enderecoOptional.isEmpty()) {
+            throw new IllegalArgumentException("CEP " + cep + " não encontrado.");
+        }
+
+        return enderecoOptional.get();
+    }
 }
