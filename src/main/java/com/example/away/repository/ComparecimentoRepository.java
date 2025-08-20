@@ -8,6 +8,6 @@ public interface ComparecimentoRepository extends JpaRepository<Comparecimento, 
 
     // 7. Filtrar por uma data de cadastro específica
     //List<Produto> findByDataComparecimento(Date data);
-    List<Comparecimento> findByDataCadastro(Date data);
+    List<Comparecimento> findByData(Date data);
 
 }

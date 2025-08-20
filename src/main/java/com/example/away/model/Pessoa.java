@@ -23,7 +23,7 @@ public class Pessoa {
     @NotEmpty(message = "Segundo Nome é obrigatório")
     private String  segundoNome;
 
-    @NotEmpty(message = "Data de Nascimento é obrigatório")
+    //@NotEmpty(message = "Data de Nascimento é obrigatório")
     private Date    dataNascimento;
 
     @NotEmpty(message = "Telefone é obrigatório")

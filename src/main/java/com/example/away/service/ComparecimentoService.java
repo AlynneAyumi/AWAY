@@ -2,7 +2,6 @@ package com.example.away.service;
 
 import java.util.*;
 
-import com.example.away.model.Endereco;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Comparecimento;
 import com.example.away.repository.ComparecimentoRepository;
@@ -52,7 +51,7 @@ public class ComparecimentoService {
 
     // Método automático de busca personalizada
     public List<Comparecimento> buscarPorDataComparecimento(Date data){
-        return comparecimentoRepository.findByDataCadastro(data);
+        return comparecimentoRepository.findByData(data);
     }
 
 }
