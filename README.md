@@ -1,6 +1,6 @@
 # AWAY
 Projeto Integrador de Extensão do Curso de Análise e Desenvolvimento de Sistemas &
-amp; Engenharia de Software. 
+Engenharia de Software. 
 
 ## Sobre o Projeto
 
