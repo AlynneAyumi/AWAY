@@ -1,5 +1,6 @@
 package com.example.away.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -14,8 +15,9 @@ public class Comparecimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idComparecimento; // Primary Key
 
-    @NotEmpty(message = "Data do Comparecimento é obrigatório")
+    @NotNull(message = "Data do Comparecimento é obrigatório")
     private Date    data;
+    @NotNull
     private Boolean flagComparecimento;
 
     // Campos para Auditoria
@@ -27,6 +29,7 @@ public class Comparecimento {
     // Foreign Key
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAssistido")
+    @JsonBackReference
     private Assistido assistido;
 
 }

@@ -5,6 +5,8 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Data
 @Entity
 @Table(name = "pessoa")
@@ -36,12 +38,13 @@ public class Pessoa {
     private Date    lastUpdateDate;
 
     // Foreign Key
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idEndereco")
     private Endereco endereco;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAssistido")
+    @JsonManagedReference
     private Assistido assistido;
 
     @OneToOne(cascade = CascadeType.ALL)

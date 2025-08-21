@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/varaExecPenal")
-public class VaraExecPenalControler {
+public class VaraExecPenalController {
     @Autowired
     private VaraExecPenalService varaExecPenalService;
 
@@ -28,9 +28,8 @@ public class VaraExecPenalControler {
         try {
             List<VaraExecPenal> response = varaExecPenalService.findAll();
             return new ResponseEntity<>(response, HttpStatus.OK); 
-
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -39,9 +38,8 @@ public class VaraExecPenalControler {
         try {
             VaraExecPenal response = varaExecPenalService.findById(id);
             return new ResponseEntity<>(response, HttpStatus.OK);
-
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -50,9 +48,8 @@ public class VaraExecPenalControler {
         try {
             VaraExecPenal response = varaExecPenalService.save(varaExecPenal);
             return new ResponseEntity<>(response, HttpStatus.CREATED);
-
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -62,7 +59,7 @@ public class VaraExecPenalControler {
             VaraExecPenal response = varaExecPenalService.update(id, varaExecPenal);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -70,9 +67,9 @@ public class VaraExecPenalControler {
     public ResponseEntity<?> delete(@PathVariable Long id) {
         try {
             varaExecPenalService.delete(id);
-            return ResponseEntity.noContent().build(); // Status 204
+            return ResponseEntity.noContent().build();
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Status 400
+            return ResponseEntity.badRequest().build();
         }
     }
     

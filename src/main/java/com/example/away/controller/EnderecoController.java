@@ -30,7 +30,7 @@ public class EnderecoController {
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -41,7 +41,7 @@ public class EnderecoController {
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -52,7 +52,8 @@ public class EnderecoController {
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            System.err.println(e);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -62,7 +63,7 @@ public class EnderecoController {
             Endereco response = enderecoService.update(id, endereco);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 

@@ -30,7 +30,7 @@ public class TipoRegimeController {
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -41,7 +41,7 @@ public class TipoRegimeController {
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -52,7 +52,7 @@ public class TipoRegimeController {
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -62,7 +62,7 @@ public class TipoRegimeController {
             TipoRegime response = regimeService.update(id, regime);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 

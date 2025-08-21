@@ -23,7 +23,7 @@ public class AssistidoController {
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -34,7 +34,7 @@ public class AssistidoController {
 
             return new ResponseEntity<>(result, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 

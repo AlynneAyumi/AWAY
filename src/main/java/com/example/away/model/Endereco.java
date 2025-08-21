@@ -29,7 +29,7 @@ public class Endereco {
     @NotEmpty(message = "Nome da Rua é obrigatório")
     private String  rua;
 
-    @NotEmpty(message = "Número da residência é obrigatório")
+    @NotNull(message = "Número da residência é obrigatório")
     private Integer numero;
 
 
@@ -38,8 +38,5 @@ public class Endereco {
     private Date    creationDate;
     private Integer lastUpdatedBy;
     private Date    lastUpdateDate;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "endereco")
-    private List<Pessoa> pessoas;
 
 }
