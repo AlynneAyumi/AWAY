@@ -1,9 +1,11 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Data
 @Entity
@@ -18,6 +20,9 @@ public class Assistido {
     private String  numProcesso;
     private String  observacao;
 
+    // Situação de comparecimento  PENDENTE/COMPARECEU
+    private EnumSituacao statusComparecimento;
+
     // Campos para Auditoria
     private Integer createdBy;
     private Date    creationDate;
@@ -26,9 +31,11 @@ public class Assistido {
 
     // Foreign Key's
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "assistido")
+    @JsonBackReference
     private Pessoa pessoa;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "assistido")
+    @JsonManagedReference
     private List<Comparecimento> comparecimentos;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -1,9 +1,6 @@
 package com.example.away.service;
 
 import java.util.*;
-import com.example.away.service.UtilService.*;
-import com.example.away.model.Pessoa;
-import com.example.away.repository.PessoaRepository;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Assistido;
 import com.example.away.repository.AssistidoRepository;

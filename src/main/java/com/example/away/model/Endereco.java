@@ -14,22 +14,22 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    idEndereco; // Primary Key
 
-    //@NotEmpty(message = "CEP é obrigatório")
+    @NotEmpty(message = "CEP é obrigatório")
     private String  cep;
 
-    //@NotEmpty(message = "Bairro é obrigatório")
+    @NotEmpty(message = "Bairro é obrigatório")
     private String  bairro;
 
-    //@NotEmpty(message = "Cidade é obrigatório")
+    @NotEmpty(message = "Cidade é obrigatório")
     private String  cidade;
 
-    //@NotEmpty(message = "Estado é obrigatório")
+    @NotEmpty(message = "Estado é obrigatório")
     private String  estado;
 
-    //@NotEmpty(message = "Nome da Rua é obrigatório")
+    @NotEmpty(message = "Nome da Rua é obrigatório")
     private String  rua;
 
-    //@NotEmpty(message = "Número da residência é obrigatório")
+    @NotEmpty(message = "Número da residência é obrigatório")
     private Integer numero;
 
 

@@ -23,7 +23,7 @@ public class AssistidoController {
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -34,7 +34,7 @@ public class AssistidoController {
 
             return new ResponseEntity<>(result, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -42,6 +42,17 @@ public class AssistidoController {
     public ResponseEntity<Assistido> findById(@PathVariable Long id) {
         try {
             var result = assistidoService.findById(id);
+            return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build(); // Atalho pro ResponseEntity 400
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Assistido> update(@PathVariable Long id,
+                                            @Valid @RequestBody Assistido assistidoUpdate) {
+        try {
+            var result = assistidoService.update(id, assistidoUpdate);
             return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
         } catch (Exception e) {
             return ResponseEntity.badRequest().build(); // Atalho pro ResponseEntity 400
@@ -57,17 +68,5 @@ public class AssistidoController {
             return ResponseEntity.badRequest().build(); // Status 400
         }
     }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Assistido> update(@PathVariable Long id,
-                                            @Valid @RequestBody Assistido assistidoUpdate) {
-        try {
-            var result = assistidoService.update(id, assistidoUpdate);
-            return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Atalho pro ResponseEntity 400
-        }
-    }
-
     
 }

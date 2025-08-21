@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/varaExecPenal")
-public class VaraExecPenalControler {
+public class VaraExecPenalController {
     @Autowired
     private VaraExecPenalService varaExecPenalService;
 
@@ -27,9 +28,8 @@ public class VaraExecPenalControler {
         try {
             List<VaraExecPenal> response = varaExecPenalService.findAll();
             return new ResponseEntity<>(response, HttpStatus.OK); 
-
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -38,9 +38,8 @@ public class VaraExecPenalControler {
         try {
             VaraExecPenal response = varaExecPenalService.findById(id);
             return new ResponseEntity<>(response, HttpStatus.OK);
-
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -49,9 +48,8 @@ public class VaraExecPenalControler {
         try {
             VaraExecPenal response = varaExecPenalService.save(varaExecPenal);
             return new ResponseEntity<>(response, HttpStatus.CREATED);
-
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
     }
     
@@ -61,7 +59,17 @@ public class VaraExecPenalControler {
             VaraExecPenal response = varaExecPenalService.update(id, varaExecPenal);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        try {
+            varaExecPenalService.delete(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
         }
     }
     
