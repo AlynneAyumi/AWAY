@@ -58,4 +58,14 @@ public class AssistidoService {
         Assistido assistido = findById(id);
         assistidoRepository.delete(assistido);
     }
+
+    public List<Assistido> searchByNumProcesso(String termo) {
+        return assistidoRepository.findByNumProcessoContainingIgnoreCase(termo);
+    }
+
+    public List<Assistido> searchByNumAuto(String termo) {
+        return assistidoRepository.findByNumAutoContainingIgnoreCase(termo);
+    }
+
+
 }

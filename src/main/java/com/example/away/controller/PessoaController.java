@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.away.model.Pessoa;
+
 import java.util.List;
 
 @RestController
@@ -23,7 +25,7 @@ public class PessoaController {
             return ResponseEntity.ok(response); // Atalho pro ResponseEntity 200
 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -34,7 +36,7 @@ public class PessoaController {
 
             return new ResponseEntity<>(result, HttpStatus.CREATED);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 

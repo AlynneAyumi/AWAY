@@ -34,4 +34,6 @@ public class Usuario {
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "usuario")
     private Pessoa pessoa;
 
+    public void setLastUpdateDate(java.sql.Date hoje) {
+    }
 }

@@ -30,7 +30,7 @@ public class UsuarioController {
             return new ResponseEntity<>(response, HttpStatus.OK); 
 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -41,7 +41,7 @@ public class UsuarioController {
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
     
@@ -52,7 +52,7 @@ public class UsuarioController {
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
     
@@ -62,7 +62,7 @@ public class UsuarioController {
             Usuario response = usuarioService.update(id, usuario);
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
     

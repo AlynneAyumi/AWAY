@@ -2,8 +2,8 @@ package com.example.away.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Data;
-import java.util.*;
+//import lombok.Data;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -14,30 +14,32 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long    idPessoa; // Primary Key
+    private Long idPessoa; // Primary Key
 
     @NotEmpty(message = "O CPF é obrigatório")
-    private String  cpf;
+    @Column(unique = true, length = 14, nullable = false)
+    private String cpf;
 
     @NotEmpty(message = "Nome é obrigatório")
-    private String  nome;
+    private String nome;
 
     @NotEmpty(message = "Segundo Nome é obrigatório")
-    private String  segundoNome;
+    private String segundoNome;
 
-    //@NotEmpty(message = "Data de Nascimento é obrigatório")
-    private Date    dataNascimento;
+    @NotNull(message = "Data de Nascimento é obrigatória")
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
 
     @NotEmpty(message = "Telefone é obrigatório")
-    private String  telefone;
+    private String telefone;
 
-    // Campos para Auditoria
+    // Auditoria
     private Integer createdBy;
-    private Date    creationDate;
+    private Date creationDate;
     private Integer lastUpdatedBy;
-    private Date    lastUpdateDate;
+    private Date lastUpdateDate;
 
-    // Foreign Key
+    // Foreign Keys
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idEndereco")
     private Endereco endereco;
@@ -50,5 +52,24 @@ public class Pessoa {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
+    private String email;
 
+    // --- Getters/Setters mínimos para compilar sem Lombok ---
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getTelefone() { return telefone; }
+    public void setTelefone(String telefone) { this.telefone = telefone; }
+
+    public java.util.Date getLastUpdateDate() { return lastUpdateDate; }
+    public void setLastUpdateDate(java.util.Date lastUpdateDate) { this.lastUpdateDate = lastUpdateDate; }
+
+    public Integer getLastUpdatedBy() { return lastUpdatedBy; }
+    public void setLastUpdatedBy(Integer lastUpdatedBy) { this.lastUpdatedBy = lastUpdatedBy; }
 }
