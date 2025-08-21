@@ -60,7 +60,7 @@ public class TipoSituacaoController {
     public ResponseEntity<TipoSituacao> update(@PathVariable Long id, @RequestBody TipoSituacao situacao) {
         try {
             TipoSituacao response = situacaoService.update(id, situacao);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

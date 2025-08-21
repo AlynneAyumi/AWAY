@@ -30,7 +30,7 @@ public class Comparecimento {
     // Foreign Key
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAssistido")
-    @JsonBackReference
+    //@JsonBackReference
     private Assistido assistido;
 
 }

@@ -33,7 +33,7 @@ public class ComparecimentoController {
             return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build(); // 404
         }
     }
     
@@ -53,7 +53,7 @@ public class ComparecimentoController {
     public ResponseEntity<Comparecimento> update(@PathVariable Long id, @RequestBody Comparecimento comparecimento) {
         try {
             Comparecimento response = comparecimentoService.update(id, comparecimento);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

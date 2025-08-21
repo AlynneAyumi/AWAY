@@ -60,7 +60,7 @@ public class TipoRegimeController {
     public ResponseEntity<TipoRegime> update(@PathVariable Long id, @RequestBody TipoRegime regime) {
         try {
             TipoRegime response = regimeService.update(id, regime);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

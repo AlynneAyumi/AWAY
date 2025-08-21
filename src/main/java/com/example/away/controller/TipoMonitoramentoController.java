@@ -60,7 +60,7 @@ public class TipoMonitoramentoController {
     public ResponseEntity<TipoMonitoramento> update(@PathVariable Long id, @RequestBody TipoMonitoramento monitoramento) {
         try {
             TipoMonitoramento response = monitoramentoService.update(id, monitoramento);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

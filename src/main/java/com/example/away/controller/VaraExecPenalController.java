@@ -57,7 +57,7 @@ public class VaraExecPenalController {
     public ResponseEntity<VaraExecPenal> update(@PathVariable Long id, @RequestBody VaraExecPenal varaExecPenal) {
         try {
             VaraExecPenal response = varaExecPenalService.update(id, varaExecPenal);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
