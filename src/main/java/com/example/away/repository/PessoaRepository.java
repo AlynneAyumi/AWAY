@@ -8,7 +8,7 @@ import java.util.*;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
 
-    @Query("SELECT p FROM Pessoa p WHERE p.cpf = :cpf")
+    @Query("SELECT p FROM Pessoa p WHERE p.cpf LIKE :cpf")
     Optional<Pessoa> findByCpfComJPQL(@Param("cpf") String cpf);
 
 }

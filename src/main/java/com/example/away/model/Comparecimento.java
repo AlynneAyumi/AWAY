@@ -17,6 +17,7 @@ public class Comparecimento {
 
     @NotNull(message = "Data do Comparecimento é obrigatório")
     private Date    data;
+
     @NotNull
     private Boolean flagComparecimento;
 

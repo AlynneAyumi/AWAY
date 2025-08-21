@@ -20,7 +20,7 @@ public class Assistido {
     private String  numProcesso;
     private String  observacao;
 
-    // Situação de comparecimento  PENDENTE/COMPARECEU
+    // Situação de comparecimento PENDENTE/COMPARECEU
     private EnumSituacao statusComparecimento;
 
     // Campos para Auditoria

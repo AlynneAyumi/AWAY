@@ -7,5 +7,6 @@ import java.util.*;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, Long>{
 
+    // Métodos automáticos
     Optional<Endereco> findByCep(String cep);
 }

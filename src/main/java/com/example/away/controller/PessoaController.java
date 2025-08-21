@@ -72,8 +72,8 @@ public class PessoaController {
 
 
     // Métodos Personalizados
-    @GetMapping("/cpf/{cpf}")
-    public ResponseEntity<Pessoa> buscarPorCpf(@PathVariable String cpf) {
+    @GetMapping("/cpf")
+    public ResponseEntity<Pessoa> buscarPorCpf(@RequestParam(name = "cpf") String cpf) {
         try {
             Pessoa pessoa = pessoaService.buscarPessoaPorCpf(cpf);
             return ResponseEntity.ok(pessoa); // Retorna 200 OK com o objeto Pessoa
