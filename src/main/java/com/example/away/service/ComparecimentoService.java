@@ -36,25 +36,42 @@ public class ComparecimentoService {
 
         // Verifica se assistido não esta nulo e persiste dentro de comparecimento
         if (comparecimento.getAssistido() != null && comparecimento.getAssistido().getIdAssistido() != null) {
-            Assistido assistidoDoBanco = assistidoRepository
+            Assistido assistidoBanco = assistidoRepository
                 .findById(comparecimento.getAssistido().getIdAssistido())
                 .orElseThrow(() -> new RuntimeException("Assistido não encontrado"));
             
-            comparecimento.setAssistido(assistidoDoBanco);
+            comparecimento.setAssistido(assistidoBanco);
         } else {
             throw new RuntimeException("Assistido é obrigatório");
         }
 
         // Persiste a situação de comparecimento
         Assistido assistido = comparecimento.getAssistido();
-        
-        if (comparecimento.getFlagComparecimento()) {
-            assistido.setStatusComparecimento(EnumSituacao.COMPARECEU);
 
+
+        // Atualiza último comparecimento
+        Date novoComparecimento = comparecimento.getData();
+        Date ultimoComparecimento = assistido.getUltimoComparecimento();
+
+        if (ultimoComparecimento == null || novoComparecimento.after(ultimoComparecimento)) {
+            assistido.setUltimoComparecimento(novoComparecimento);
+        }
+        
+        //Verifica se o último comparecimento foi a mais de 3 meses
+        if (assistido.getUltimoComparecimento() != null) {
+            Calendar limite = Calendar.getInstance();
+            limite.add(Calendar.MONTH, -3); // 3 meses atrás
+
+            if (assistido.getUltimoComparecimento().before(limite.getTime())) {
+                assistido.setStatusComparecimento(EnumSituacao.PENDENTE);
+            } else {
+                assistido.setStatusComparecimento(EnumSituacao.COMPARECEU);
+            }
         } else {
             assistido.setStatusComparecimento(EnumSituacao.PENDENTE);
-
         }
+
+        // Persiste o assistido atualizado
         assistidoRepository.save(assistido);
 
         comparecimento.setCreatedBy(1);

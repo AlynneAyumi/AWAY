@@ -23,6 +23,9 @@ public class Assistido {
     // Situação de comparecimento PENDENTE/COMPARECEU
     private EnumSituacao statusComparecimento;
 
+    @Temporal(TemporalType.DATE)
+    private Date ultimoComparecimento;
+
     // Campos para Auditoria
     private Integer createdBy;
     private Date    creationDate;
