@@ -48,16 +48,6 @@ public class AssistidoController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        try {
-            assistidoService.delete(id);
-            return ResponseEntity.noContent().build(); // Status 204
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Status 400
-        }
-    }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<Assistido> update(@PathVariable Long id,
                                             @Valid @RequestBody Assistido assistidoUpdate) {
@@ -69,5 +59,14 @@ public class AssistidoController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        try {
+            assistidoService.delete(id);
+            return ResponseEntity.noContent().build(); // Status 204
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build(); // Status 400
+        }
+    }
     
 }
