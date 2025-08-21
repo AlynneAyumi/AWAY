@@ -6,8 +6,8 @@ import java.util.*;
 
 public interface ComparecimentoRepository extends JpaRepository<Comparecimento, Long>{
 
-    // 7. Filtrar por uma data de cadastro específica
-    //List<Produto> findByDataComparecimento(Date data);
+    // Consultas com Métodos Automáticos
     List<Comparecimento> findByData(Date data);
 
+    List<Comparecimento> findByFlagComparecimento(Boolean flagComparecimento);
 }

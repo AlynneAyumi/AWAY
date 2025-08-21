@@ -38,7 +38,8 @@ public class TipoRegimeService {
     public TipoRegime update(Long id, TipoRegime regime) {
         TipoRegime update = findById(id);
 
-        // TODO: Formular as validações
+        update.setDescricao(regime.getDescricao());
+        update.setFlagAtivo(regime.getFlagAtivo());
 
         Date hoje = UtilService.getDataAtual();
         regime.setLastUpdateDate(hoje);

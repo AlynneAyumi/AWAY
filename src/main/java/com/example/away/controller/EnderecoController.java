@@ -69,10 +69,25 @@ public class EnderecoController {
         }
     }
 
+
+
+    // Consultas com Métodos Automáticos
     @GetMapping("/cep")
     public ResponseEntity<Endereco> buscarEnderecoPorCep(@RequestParam(name = "cep") String cep) {
         try {
             Endereco endereco = enderecoService.buscarPorCep(cep);
+            return ResponseEntity.ok(endereco); // Retorna 200 OK com o objeto Endereco no corpo
+
+        } catch (IllegalArgumentException ex) {
+            // Captura a exceção e retorna 404 Not Found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @GetMapping("/cidade")
+    public ResponseEntity<Endereco> buscarEnderecoPorCidade(@RequestParam(name = "cidade") String cidade) {
+        try {
+            Endereco endereco = enderecoService.buscarPorCidade(cidade);
             return ResponseEntity.ok(endereco); // Retorna 200 OK com o objeto Endereco no corpo
 
         } catch (IllegalArgumentException ex) {

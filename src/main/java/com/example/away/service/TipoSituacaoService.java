@@ -37,7 +37,8 @@ public class TipoSituacaoService {
     public TipoSituacao update(Long id, TipoSituacao situacao) {
         TipoSituacao update = findById(id);
 
-        // TODO: Formular as validações
+        update.setDescricao(situacao.getDescricao());
+        update.setFlagAtivo(situacao.getFlagAtivo());
 
         Date hoje = UtilService.getDataAtual();
         situacao.setLastUpdateDate(hoje);

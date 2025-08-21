@@ -35,18 +35,10 @@ public class AssistidoService {
     public Assistido update(Long id, Assistido assistido) {
         Assistido update = findById(id);
 
-
-        /*
-        if(carro.getNome() != null && !carro.getNome().isBlank()){
-            update.setNome(carro.getNome());
-        }
-        if (carro.getMarca() != null && !carro.getMarca().isBlank()) {
-            update.setMarca(carro.getMarca());
-        }
-        if(carro.getModelo() != null && !carro.getModelo().isBlank()){
-            update.setModelo(carro.getModelo());
-        }
-        */
+        update.setNumAuto(assistido.getNumAuto());
+        update.setNumProcesso(assistido.getNumProcesso());
+        update.setObservacao(assistido.getObservacao());
+        update.setStatusComparecimento(assistido.getStatusComparecimento());
         
         Date hoje = UtilService.getDataAtual();
         assistido.setLastUpdateDate(hoje);

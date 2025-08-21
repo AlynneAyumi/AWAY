@@ -69,18 +69,31 @@ public class ComparecimentoController {
         }
     }
 
+    // Consultas com Métodos Automáticos
     @GetMapping("/dataComparecimento")
     public ResponseEntity<List<Comparecimento>> buscarPorDataComparecimento(@RequestParam(name = "data") Date data) { // RequestParam
 
-        List<Comparecimento> comparecimentos = comparecimentoService.buscarPorDataComparecimento(data);
+        try {
+            List<Comparecimento> comparecimentos = comparecimentoService.buscarPorDataComparecimento(data);
+            return ResponseEntity.ok(comparecimentos); // OK 200
 
-        // Se a lista estiver vazia, retorna 404 Not Found.
-        if (comparecimentos.isEmpty()) {
-            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build(); // NOT_FOUND 404
         }
 
-        // Se houver resultados, retorna 200 OK com a lista de produtos
-        return ResponseEntity.ok(comparecimentos);
     }
-    
+
+    @GetMapping("/flagComparecimento")
+    public ResponseEntity<List<Comparecimento>> buscarPorFlagComparecimento(@RequestParam(name = "flag") Boolean flag) { // RequestParam
+
+        try {
+            List<Comparecimento> comparecimentos = comparecimentoService.buscarPorFlagComparecimento(flag);
+            return ResponseEntity.ok(comparecimentos); // OK 200
+
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build(); // NOT_FOUND 404
+        }
+
+    }
+
 }

@@ -56,14 +56,26 @@ public class EnderecoService {
     }
 
 
-    // Método automático de busca personalizada
+    // Consultas com Métodos Automáticos
     public Endereco buscarPorCep(String cep) {
 
-        Optional<Endereco> enderecoOptional = enderecoRepository.findByCep(cep);
+        //Optional<Endereco> enderecoOptional = enderecoRepository.findByCep(cep);
+
+        // Lança uma exceção se o endereço não for encontrado
+        /*if (enderecoOptional.isEmpty()) {
+            throw new IllegalArgumentException("CEP " + cep + " não encontrado.");
+        }*/
+
+        return enderecoRepository.findByCep(cep).orElseThrow(() -> new EntityNotFoundException("CEP " + cep + " não encontrado."));
+    }
+
+    public Endereco buscarPorCidade(String cidade) {
+
+        Optional<Endereco> enderecoOptional = enderecoRepository.findByCidade(cidade);
 
         // Lança uma exceção se o endereço não for encontrado
         if (enderecoOptional.isEmpty()) {
-            throw new IllegalArgumentException("CEP " + cep + " não encontrado.");
+            throw new IllegalArgumentException("Cidade " + cidade + " não encontrada.");
         }
 
         return enderecoOptional.get();

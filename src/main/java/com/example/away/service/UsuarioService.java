@@ -36,7 +36,10 @@ public class UsuarioService {
     public Usuario update(Long id, Usuario usuario) {
         Usuario update = findById(id);
 
-        // TODO: Formular as validações
+        update.setEmail(usuario.getEmail());
+        update.setNomeUser(usuario.getNomeUser());
+        update.setSenha(usuario.getSenha());
+        update.setTipoAcesso(usuario.getTipoAcesso());
 
         Date hoje = UtilService.getDataAtual();
         usuario.setLastUpdateDate(hoje);

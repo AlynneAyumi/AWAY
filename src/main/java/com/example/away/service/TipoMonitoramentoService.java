@@ -36,7 +36,8 @@ public class TipoMonitoramentoService {
     public TipoMonitoramento update(Long id, TipoMonitoramento monitoramento) {
         TipoMonitoramento update = findById(id);
 
-        // TODO: Formular as validações
+        update.setDescricao(monitoramento.getDescricao());
+        update.setFlagAtivo(monitoramento.getFlagAtivo());
 
         Date hoje = UtilService.getDataAtual();
         monitoramento.setLastUpdateDate(hoje);

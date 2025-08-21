@@ -93,9 +93,15 @@ public class ComparecimentoService {
         comparecimentoRepository.delete(comparecimento);
     }
 
-    // Método automático de busca personalizada
+
+    // Consultas com Métodos Automáticos
     public List<Comparecimento> buscarPorDataComparecimento(Date data){
         return comparecimentoRepository.findByData(data);
     }
+
+    public List<Comparecimento> buscarPorFlagComparecimento(Boolean flagComparecimento){
+        return comparecimentoRepository.findByFlagComparecimento(flagComparecimento);
+    }
+
 
 }

@@ -36,7 +36,8 @@ public class VaraExecPenalService {
     public VaraExecPenal update(Long id, VaraExecPenal varaPenal) {
         VaraExecPenal update = findById(id);
 
-        // TODO: Formular as validações
+        update.setNome(varaPenal.getNome());
+        update.setDescricao(varaPenal.getDescricao());
 
         Date hoje = UtilService.getDataAtual();
         varaPenal.setLastUpdateDate(hoje);
