@@ -1,6 +1,8 @@
 package com.example.away.service;
 
 import java.util.*;
+
+import com.example.away.model.Comparecimento;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Assistido;
 import com.example.away.repository.AssistidoRepository;
@@ -49,5 +51,15 @@ public class AssistidoService {
     public void delete(Long id) {
         Assistido assistido = findById(id);
         assistidoRepository.delete(assistido);
+    }
+
+
+    // Consultas com Métodos Automáticos
+    public List<Assistido> buscarPorNumAuto(String numAuto){
+        return assistidoRepository.findByNumAuto(numAuto);
+    }
+
+    public List<Assistido> buscarPorNumProcesso(String numProcesso){
+        return assistidoRepository.findByNumProcesso(numProcesso);
     }
 }

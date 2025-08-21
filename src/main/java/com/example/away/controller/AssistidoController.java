@@ -1,5 +1,6 @@
 package com.example.away.controller;
 
+import com.example.away.model.Comparecimento;
 import jakarta.validation.*;
 import org.springframework.web.bind.annotation.*;
 import com.example.away.model.Assistido;
@@ -67,6 +68,34 @@ public class AssistidoController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().build(); // Status 400
         }
+    }
+
+
+    // Consultas com Métodos Automáticos
+    @GetMapping("/numAuto")
+    public ResponseEntity<List<Assistido>> buscarPorNumAuto(@RequestParam(name = "numAuto") String numAuto) {
+
+        try {
+            List<Assistido> assistidos = assistidoService.buscarPorNumAuto(numAuto);
+            return ResponseEntity.ok(assistidos); // OK 200
+
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build(); // NOT_FOUND 404
+        }
+
+    }
+
+    @GetMapping("/numProcesso")
+    public ResponseEntity<List<Assistido>> buscarPorNumProcesso(@RequestParam(name = "numProcesso") String numProcesso) {
+
+        try {
+            List<Assistido> assistidos = assistidoService.buscarPorNumProcesso(numProcesso);
+            return ResponseEntity.ok(assistidos); // OK 200
+
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build(); // NOT_FOUND 404
+        }
+
     }
     
 }
