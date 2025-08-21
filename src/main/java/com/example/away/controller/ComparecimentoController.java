@@ -66,7 +66,7 @@ public class ComparecimentoController {
     }
 
     @GetMapping("/dataComparecimento")
-    public ResponseEntity<List<Comparecimento>> buscarPorDataComparecimento(@PathVariable Date data) {
+    public ResponseEntity<List<Comparecimento>> buscarPorDataComparecimento(@PathVariable Date data) { // RequestParam
 
         List<Comparecimento> comparecimentos = comparecimentoService.buscarPorDataComparecimento(data);
 

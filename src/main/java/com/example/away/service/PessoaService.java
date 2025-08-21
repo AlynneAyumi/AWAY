@@ -35,10 +35,14 @@ public class PessoaService {
     public Pessoa update(Long id, Pessoa pessoa) {
         Pessoa update = findById(id);
 
-        // TODO: Formular as validações
+        update.setNome(pessoa.getNome());
+        update.setCpf(pessoa.getCpf());
+        update.setSegundoNome(pessoa.getSegundoNome());
+        update.setDataNascimento(pessoa.getDataNascimento());
+        update.setTelefone(pessoa.getTelefone());
 
         Date hoje = UtilService.getDataAtual();
-        pessoa.setLastUpdateDate(hoje);
+        update.setLastUpdateDate(hoje);
 
         return pessoaRepository.save(update);
     }

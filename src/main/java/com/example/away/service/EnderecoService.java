@@ -36,7 +36,13 @@ public class EnderecoService {
     public Endereco update(Long id, Endereco endereco) {
         Endereco update = findById(id);
 
-        // TODO: Formular as validações
+        update.setCep(endereco.getCep());
+        update.setBairro(endereco.getBairro());
+        update.setCidade(endereco.getCidade());
+        update.setEstado(endereco.getEstado());
+        update.setRua(endereco.getRua());
+        update.setNumero(endereco.getNumero());
+        update.setPessoas(endereco.getPessoas());
 
         Date hoje = UtilService.getDataAtual();
         endereco.setLastUpdateDate(hoje);

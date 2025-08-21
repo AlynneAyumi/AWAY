@@ -59,7 +59,7 @@ public class EnderecoController {
     public ResponseEntity<Endereco> update(@PathVariable Long id, @RequestBody Endereco endereco) {
         try {
             Endereco response = enderecoService.update(id, endereco);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
