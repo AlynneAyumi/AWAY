@@ -51,4 +51,8 @@ public class UsuarioService {
         Usuario usuario = findById(id);
         usuarioRepository.delete(usuario);
     }
+
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
 }

@@ -49,7 +49,7 @@ public class ComparecimentoController {
         }
     }
     
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Comparecimento> update(@PathVariable Long id, @RequestBody Comparecimento comparecimento) {
         try {
             Comparecimento response = comparecimentoService.update(id, comparecimento);
