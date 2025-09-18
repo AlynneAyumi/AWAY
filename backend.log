@@ -1,0 +1,4203 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:away >--------------------------
+[INFO] Building away 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.4:run (default-cli) > test-compile @ away >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ away ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ away ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ away ---
+[INFO] skip non existing resourceDirectory /Users/analuisacantu/Desktop/workspace/AWAY/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ away ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.5.4:run (default-cli) < test-compile @ away <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.4:run (default-cli) @ away ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-09-18T17:01:52.517-03:00  INFO 10124 --- [away] [  restartedMain] com.example.away.AwayApplication         : Starting AwayApplication using Java 17.0.14 with PID 10124 (/Users/analuisacantu/Desktop/workspace/AWAY/target/classes started by analuisacantu in /Users/analuisacantu/Desktop/workspace/AWAY)
+2025-09-18T17:01:52.519-03:00  INFO 10124 --- [away] [  restartedMain] com.example.away.AwayApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-09-18T17:01:52.580-03:00  INFO 10124 --- [away] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-18T17:01:52.582-03:00  INFO 10124 --- [away] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-18T17:01:54.479-03:00  INFO 10124 --- [away] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-18T17:01:54.558-03:00  INFO 10124 --- [away] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 9 JPA repository interfaces.
+2025-09-18T17:01:55.173-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-09-18T17:01:55.190-03:00  INFO 10124 --- [away] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-18T17:01:55.191-03:00  INFO 10124 --- [away] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-09-18T17:01:55.240-03:00  INFO 10124 --- [away] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-18T17:01:55.243-03:00  INFO 10124 --- [away] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2657 ms
+2025-09-18T17:01:55.424-03:00  INFO 10124 --- [away] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-18T17:01:55.601-03:00  INFO 10124 --- [away] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3dd1d5e8
+2025-09-18T17:01:55.602-03:00  INFO 10124 --- [away] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-18T17:01:55.675-03:00  INFO 10124 --- [away] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-18T17:01:55.744-03:00  INFO 10124 --- [away] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-09-18T17:01:55.781-03:00  INFO 10124 --- [away] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-18T17:01:55.984-03:00  INFO 10124 --- [away] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-18T17:01:56.031-03:00  WARN 10124 --- [away] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-18T17:01:56.049-03:00  INFO 10124 --- [away] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-18T17:01:57.121-03:00  INFO 10124 --- [away] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-18T17:01:57.362-03:00  INFO 10124 --- [away] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-18T17:01:57.817-03:00  INFO 10124 --- [away] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-18T17:01:58.284-03:00  WARN 10124 --- [away] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-18T17:01:58.774-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-18T17:01:58.780-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-09-18T17:01:58.854-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-09-18T17:01:58.874-03:00  INFO 10124 --- [away] [  restartedMain] com.example.away.AwayApplication         : Started AwayApplication in 6.939 seconds (process running for 7.568)
+2025-09-18T17:02:19.731-03:00  INFO 10124 --- [away] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-18T17:02:19.731-03:00  INFO 10124 --- [away] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-18T17:02:19.738-03:00  INFO 10124 --- [away] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+Recebendo requisição: AssistidoCreateRequest(numAuto=1234, numProcesso=00001, observacao=Teste, pessoa=AssistidoCreateRequest.PessoaData(nome=Test, segundoNome=User, cpf=45999041756, dataNascimento=2002-09-05, telefone=459, endereco=AssistidoCreateRequest.EnderecoData(logradouro=Rua)))
+2025-09-18T17:02:19.904-03:00 DEBUG 10124 --- [away] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        endereco
+        (bairro, cep, cidade, created_by, creation_date, estado, last_update_date, last_updated_by, numero, rua) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        endereco
+        (bairro, cep, cidade, created_by, creation_date, estado, last_update_date, last_updated_by, numero, rua) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:02:19.957-03:00 DEBUG 10124 --- [away] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        assistido
+        (created_by, creation_date, last_update_date, last_updated_by, num_auto, num_processo, observacao, status_comparecimento, id_tipo_monitoramento, id_tipo_regime, id_tipo_situacao, ultimo_comparecimento, id_vara_exec_penal) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        assistido
+        (created_by, creation_date, last_update_date, last_updated_by, num_auto, num_processo, observacao, status_comparecimento, id_tipo_monitoramento, id_tipo_regime, id_tipo_situacao, ultimo_comparecimento, id_vara_exec_penal) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:02:19.977-03:00 DEBUG 10124 --- [away] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        pessoa
+        (id_assistido, cpf, created_by, creation_date, data_nascimento, id_endereco, last_update_date, last_updated_by, nome, segundo_nome, telefone, id_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        pessoa
+        (id_assistido, cpf, created_by, creation_date, data_nascimento, id_endereco, last_update_date, last_updated_by, nome, segundo_nome, telefone, id_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Recebendo requisição: AssistidoCreateRequest(numAuto=1234, numProcesso=00001, observacao=Teste, pessoa=AssistidoCreateRequest.PessoaData(nome=Test, segundoNome=User, cpf=45999041756, dataNascimento=2002-09-05, telefone=459, endereco=AssistidoCreateRequest.EnderecoData(logradouro=Rua)))
+2025-09-18T17:02:28.635-03:00 DEBUG 10124 --- [away] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        endereco
+        (bairro, cep, cidade, created_by, creation_date, estado, last_update_date, last_updated_by, numero, rua) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        endereco
+        (bairro, cep, cidade, created_by, creation_date, estado, last_update_date, last_updated_by, numero, rua) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:02:28.639-03:00 DEBUG 10124 --- [away] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        assistido
+        (created_by, creation_date, last_update_date, last_updated_by, num_auto, num_processo, observacao, status_comparecimento, id_tipo_monitoramento, id_tipo_regime, id_tipo_situacao, ultimo_comparecimento, id_vara_exec_penal) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        assistido
+        (created_by, creation_date, last_update_date, last_updated_by, num_auto, num_processo, observacao, status_comparecimento, id_tipo_monitoramento, id_tipo_regime, id_tipo_situacao, ultimo_comparecimento, id_vara_exec_penal) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:02:28.643-03:00 DEBUG 10124 --- [away] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        pessoa
+        (id_assistido, cpf, created_by, creation_date, data_nascimento, id_endereco, last_update_date, last_updated_by, nome, segundo_nome, telefone, id_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        pessoa
+        (id_assistido, cpf, created_by, creation_date, data_nascimento, id_endereco, last_update_date, last_updated_by, nome, segundo_nome, telefone, id_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:03:08.080-03:00  INFO 10124 --- [away] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-09-18T17:03:08.093-03:00  INFO 10124 --- [away] [       Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-18T17:03:08.108-03:00  INFO 10124 --- [away] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-09-18T17:03:08.125-03:00  INFO 10124 --- [away] [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-18T17:03:08.137-03:00  INFO 10124 --- [away] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-18T17:03:08.141-03:00  INFO 10124 --- [away] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-09-18T17:03:08.489-03:00  INFO 10124 --- [away] [  restartedMain] com.example.away.AwayApplication         : Starting AwayApplication using Java 17.0.14 with PID 10124 (/Users/analuisacantu/Desktop/workspace/AWAY/target/classes started by analuisacantu in /Users/analuisacantu/Desktop/workspace/AWAY)
+2025-09-18T17:03:08.491-03:00  INFO 10124 --- [away] [  restartedMain] com.example.away.AwayApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-09-18T17:03:08.853-03:00  INFO 10124 --- [away] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-18T17:03:08.877-03:00  INFO 10124 --- [away] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 9 JPA repository interfaces.
+2025-09-18T17:03:09.030-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-09-18T17:03:09.034-03:00  INFO 10124 --- [away] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-18T17:03:09.034-03:00  INFO 10124 --- [away] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-09-18T17:03:09.043-03:00  INFO 10124 --- [away] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-18T17:03:09.044-03:00  INFO 10124 --- [away] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 546 ms
+2025-09-18T17:03:09.090-03:00  INFO 10124 --- [away] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-09-18T17:03:09.122-03:00  INFO 10124 --- [away] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@11e45876
+2025-09-18T17:03:09.123-03:00  INFO 10124 --- [away] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-09-18T17:03:09.135-03:00  INFO 10124 --- [away] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-18T17:03:09.136-03:00  INFO 10124 --- [away] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-18T17:03:09.151-03:00  INFO 10124 --- [away] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-18T17:03:09.165-03:00  WARN 10124 --- [away] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-18T17:03:09.168-03:00  INFO 10124 --- [away] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-18T17:03:09.507-03:00  INFO 10124 --- [away] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-18T17:03:09.697-03:00  INFO 10124 --- [away] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-18T17:03:10.001-03:00  WARN 10124 --- [away] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-18T17:03:10.142-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-09-18T17:03:10.145-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-09-18T17:03:10.163-03:00  INFO 10124 --- [away] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-09-18T17:03:10.173-03:00  INFO 10124 --- [away] [  restartedMain] com.example.away.AwayApplication         : Started AwayApplication in 1.803 seconds (process running for 78.866)
+2025-09-18T17:03:10.182-03:00  INFO 10124 --- [away] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-09-18T17:04:31.691-03:00  INFO 10124 --- [away] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-18T17:04:31.697-03:00  INFO 10124 --- [away] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-18T17:04:31.706-03:00  INFO 10124 --- [away] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+Recebendo requisição: AssistidoCreateRequest(numAuto=12345, numProcesso=002, observacao=nada, pessoa=AssistidoCreateRequest.PessoaData(nome=Ana, segundoNome=Cardoso, cpf=717.516.619-20, dataNascimento=2002-09-05, telefone=45999041756, endereco=AssistidoCreateRequest.EnderecoData(logradouro=rua)))
+2025-09-18T17:04:31.841-03:00 DEBUG 10124 --- [away] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        endereco
+        (bairro, cep, cidade, created_by, creation_date, estado, last_update_date, last_updated_by, numero, rua) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        endereco
+        (bairro, cep, cidade, created_by, creation_date, estado, last_update_date, last_updated_by, numero, rua) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:04:32.008-03:00 DEBUG 10124 --- [away] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        assistido
+        (created_by, creation_date, last_update_date, last_updated_by, num_auto, num_processo, observacao, status_comparecimento, id_tipo_monitoramento, id_tipo_regime, id_tipo_situacao, ultimo_comparecimento, id_vara_exec_penal) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        assistido
+        (created_by, creation_date, last_update_date, last_updated_by, num_auto, num_processo, observacao, status_comparecimento, id_tipo_monitoramento, id_tipo_regime, id_tipo_situacao, ultimo_comparecimento, id_vara_exec_penal) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:04:32.025-03:00 DEBUG 10124 --- [away] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        pessoa
+        (id_assistido, cpf, created_by, creation_date, data_nascimento, id_endereco, last_update_date, last_updated_by, nome, segundo_nome, telefone, id_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        pessoa
+        (id_assistido, cpf, created_by, creation_date, data_nascimento, id_endereco, last_update_date, last_updated_by, nome, segundo_nome, telefone, id_usuario) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-18T17:04:32.569-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        a1_0.id_tipo_monitoramento,
+        a1_0.id_tipo_regime,
+        a1_0.id_tipo_situacao,
+        a1_0.ultimo_comparecimento,
+        a1_0.id_vara_exec_penal 
+    from
+        assistido a1_0
+Hibernate: 
+    select
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        a1_0.id_tipo_monitoramento,
+        a1_0.id_tipo_regime,
+        a1_0.id_tipo_situacao,
+        a1_0.ultimo_comparecimento,
+        a1_0.id_vara_exec_penal 
+    from
+        assistido a1_0
+2025-09-18T17:04:32.633-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.651-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.655-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.665-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.670-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.675-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.681-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.686-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.693-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.699-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.704-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+Hibernate: 
+    select
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        e1_0.id_endereco,
+        e1_0.bairro,
+        e1_0.cep,
+        e1_0.cidade,
+        e1_0.created_by,
+        e1_0.creation_date,
+        e1_0.estado,
+        e1_0.last_update_date,
+        e1_0.last_updated_by,
+        e1_0.numero,
+        e1_0.rua,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        comparecimento c1_0 
+            on a1_0.id_assistido=c1_0.id_assistido 
+    left join
+        endereco e1_0 
+            on e1_0.id_endereco=p1_0.id_endereco 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_assistido=?
+2025-09-18T17:04:32.722-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.728-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.734-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.736-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.739-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.743-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.748-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.752-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.755-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+Hibernate: 
+    select
+        p1_0.id_endereco,
+        p1_0.id_pessoa,
+        a1_0.id_assistido,
+        a1_0.created_by,
+        a1_0.creation_date,
+        a1_0.last_update_date,
+        a1_0.last_updated_by,
+        a1_0.num_auto,
+        a1_0.num_processo,
+        a1_0.observacao,
+        a1_0.status_comparecimento,
+        tm1_0.id_tipo_monitoramento,
+        tm1_0.created_by,
+        tm1_0.creation_date,
+        tm1_0.descricao,
+        tm1_0.flag_ativo,
+        tm1_0.last_update_date,
+        tm1_0.last_updated_by,
+        tr1_0.id_tipo_regime,
+        tr1_0.created_by,
+        tr1_0.creation_date,
+        tr1_0.descricao,
+        tr1_0.flag_ativo,
+        tr1_0.last_update_date,
+        tr1_0.last_updated_by,
+        ts1_0.id_tipo_situacao,
+        ts1_0.created_by,
+        ts1_0.creation_date,
+        ts1_0.descricao,
+        ts1_0.flag_ativo,
+        ts1_0.last_update_date,
+        ts1_0.last_updated_by,
+        a1_0.ultimo_comparecimento,
+        vep1_0.id_vara_exec_penal,
+        vep1_0.created_by,
+        vep1_0.creation_date,
+        vep1_0.descricao,
+        vep1_0.last_update_date,
+        vep1_0.last_updated_by,
+        vep1_0.nome,
+        p1_0.cpf,
+        p1_0.created_by,
+        p1_0.creation_date,
+        p1_0.data_nascimento,
+        p1_0.last_update_date,
+        p1_0.last_updated_by,
+        p1_0.nome,
+        p1_0.segundo_nome,
+        p1_0.telefone,
+        u1_0.id_usuario,
+        u1_0.tipo_acesso,
+        u1_0.created_by,
+        u1_0.creation_date,
+        u1_0.email,
+        u1_0.last_update_date,
+        u1_0.last_updated_by,
+        u1_0.nome_user,
+        u1_0.senha 
+    from
+        pessoa p1_0 
+    left join
+        assistido a1_0 
+            on a1_0.id_assistido=p1_0.id_assistido 
+    left join
+        tipo_monitoramento tm1_0 
+            on tm1_0.id_tipo_monitoramento=a1_0.id_tipo_monitoramento 
+    left join
+        tipo_regime tr1_0 
+            on tr1_0.id_tipo_regime=a1_0.id_tipo_regime 
+    left join
+        tipo_situacao ts1_0 
+            on ts1_0.id_tipo_situacao=a1_0.id_tipo_situacao 
+    left join
+        vara_exec_penal vep1_0 
+            on vep1_0.id_vara_exec_penal=a1_0.id_vara_exec_penal 
+    left join
+        usuario u1_0 
+            on u1_0.id_usuario=p1_0.id_usuario 
+    where
+        p1_0.id_endereco=?
+2025-09-18T17:04:32.757-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0 
+    where
+        c1_0.id_assistido=?
+Hibernate: 
+    select
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0 
+    where
+        c1_0.id_assistido=?
+2025-09-18T17:04:32.758-03:00 DEBUG 10124 --- [away] [nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0 
+    where
+        c1_0.id_assistido=?
+Hibernate: 
+    select
+        c1_0.id_assistido,
+        c1_0.id_comparecimento,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0 
+    where
+        c1_0.id_assistido=?
+2025-09-18T17:04:43.567-03:00 DEBUG 10124 --- [away] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.id_comparecimento,
+        c1_0.id_assistido,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0
+Hibernate: 
+    select
+        c1_0.id_comparecimento,
+        c1_0.id_assistido,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0
+2025-09-18T17:04:48.198-03:00 DEBUG 10124 --- [away] [nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        c1_0.id_comparecimento,
+        c1_0.id_assistido,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0
+Hibernate: 
+    select
+        c1_0.id_comparecimento,
+        c1_0.id_assistido,
+        c1_0.created_by,
+        c1_0.creation_date,
+        c1_0.data,
+        c1_0.flag_comparecimento,
+        c1_0.last_update_date,
+        c1_0.last_updated_by 
+    from
+        comparecimento c1_0
