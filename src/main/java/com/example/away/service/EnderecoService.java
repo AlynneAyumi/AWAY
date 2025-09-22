@@ -42,7 +42,6 @@ public class EnderecoService {
         update.setEstado(endereco.getEstado());
         update.setRua(endereco.getRua());
         update.setNumero(endereco.getNumero());
-        update.setPessoas(endereco.getPessoas());
 
         Date hoje = UtilService.getDataAtual();
         endereco.setLastUpdateDate(hoje);

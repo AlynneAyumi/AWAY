@@ -1,11 +1,11 @@
 package com.example.away.controller;
 
 import com.example.away.dto.AssistidoCreateRequest;
+import com.example.away.dto.AssistidoUpdateRequest;
 import com.example.away.model.*;
 import com.example.away.service.AssistidoService;
 import com.example.away.service.PessoaService;
 import com.example.away.service.EnderecoService;
-import jakarta.validation.*;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -77,9 +77,16 @@ public class AssistidoController {
             endereco = enderecoService.save(endereco);
             pessoa.setEndereco(endereco);
             
+            // Salvar assistido primeiro
             assistido = assistidoService.save(assistido);
+            
+            // Associar pessoa ao assistido e salvar
             pessoa.setAssistido(assistido);
             pessoa = pessoaService.save(pessoa);
+            
+            // Associar pessoa ao assistido
+            assistido.setPessoa(pessoa);
+            assistido = assistidoService.save(assistido);
 
             // Retornar JSON estruturado
             Map<String, Object> response = new HashMap<>();
@@ -111,23 +118,119 @@ public class AssistidoController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Assistido> update(@PathVariable Long id,
-                                            @Valid @RequestBody Assistido assistidoUpdate) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable Long id,
+                                                      @RequestBody AssistidoUpdateRequest request) {
         try {
-            var result = assistidoService.update(id, assistidoUpdate);
-            return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
+            System.out.println("Atualizando assistido ID: " + id + " com dados: " + request);
+            
+            // Buscar assistido existente
+            Assistido assistidoExistente = assistidoService.findById(id);
+            if (assistidoExistente == null) {
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Assistido não encontrado");
+                return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+            }
+
+            // Atualizar dados do assistido
+            assistidoExistente.setNumAuto(request.getNumAuto());
+            assistidoExistente.setNumProcesso(request.getNumProcesso());
+            assistidoExistente.setObservacao(request.getObservacao());
+
+            // Atualizar pessoa se existir
+            if (assistidoExistente.getPessoa() != null && request.getPessoa() != null) {
+                Pessoa pessoa = assistidoExistente.getPessoa();
+                pessoa.setNome(request.getPessoa().getNome());
+                pessoa.setSegundoNome(request.getPessoa().getSegundoNome());
+                pessoa.setCpf(request.getPessoa().getCpf());
+                pessoa.setTelefone(request.getPessoa().getTelefone());
+
+                // Converter data de nascimento
+                if (request.getPessoa().getDataNascimento() != null) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    pessoa.setDataNascimento(sdf.parse(request.getPessoa().getDataNascimento()));
+                }
+
+                // Atualizar endereço se existir
+                if (pessoa.getEndereco() != null && request.getPessoa().getEndereco() != null) {
+                    Endereco endereco = pessoa.getEndereco();
+                    endereco.setRua(request.getPessoa().getEndereco().getLogradouro());
+                    if (request.getPessoa().getEndereco().getCep() != null) {
+                        endereco.setCep(request.getPessoa().getEndereco().getCep());
+                    }
+                    if (request.getPessoa().getEndereco().getBairro() != null) {
+                        endereco.setBairro(request.getPessoa().getEndereco().getBairro());
+                    }
+                    if (request.getPessoa().getEndereco().getCidade() != null) {
+                        endereco.setCidade(request.getPessoa().getEndereco().getCidade());
+                    }
+                    if (request.getPessoa().getEndereco().getEstado() != null) {
+                        endereco.setEstado(request.getPessoa().getEndereco().getEstado());
+                    }
+                    if (request.getPessoa().getEndereco().getNumero() != null) {
+                        endereco.setNumero(request.getPessoa().getEndereco().getNumero());
+                    }
+                    
+                    enderecoService.save(endereco);
+                }
+
+                pessoaService.save(pessoa);
+            }
+
+            // Salvar assistido atualizado
+            Assistido assistidoAtualizado = assistidoService.update(id, assistidoExistente);
+
+            // Retornar JSON estruturado
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Assistido atualizado com sucesso!");
+            response.put("id", assistidoAtualizado.getIdAssistido());
+            response.put("assistido", assistidoAtualizado);
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Atalho pro ResponseEntity 400
+            e.printStackTrace();
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "Erro ao atualizar assistido: " + e.getMessage());
+            errorResponse.put("error", e.getClass().getSimpleName());
+
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<Map<String, Object>> delete(@PathVariable Long id) {
         try {
+            System.out.println("Recebendo requisição de exclusão para assistido ID: " + id);
+            
+            // Verificar se o assistido existe antes de tentar deletar
+            Assistido assistido = assistidoService.findById(id);
+            if (assistido == null) {
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Assistido não encontrado");
+                return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+            }
+            
+            // Executar a exclusão
             assistidoService.delete(id);
-            return ResponseEntity.noContent().build(); // Status 204
+            
+            // Retornar resposta de sucesso
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Assistido excluído com sucesso!");
+            response.put("id", id);
+            
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Status 400
+            e.printStackTrace();
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "Erro ao excluir assistido: " + e.getMessage());
+            errorResponse.put("error", e.getClass().getSimpleName());
+            
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
     }
 

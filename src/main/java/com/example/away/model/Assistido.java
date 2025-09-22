@@ -33,8 +33,9 @@ public class Assistido {
     private Date    lastUpdateDate;
 
     // Foreign Key's
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "assistido")
-    @JsonBackReference
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "idPessoa")
+    @JsonManagedReference
     private Pessoa pessoa;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "assistido")

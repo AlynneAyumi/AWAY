@@ -148,20 +148,7 @@ npm run start:proxy
 2. Reiniciar backend após mudanças
 3. Usar proxy no frontend
 
-## 🎯 **Próximos Passos**
 
-### Segurança:
-- [ ] Implementar JWT real
-- [ ] Hash de senhas com BCrypt
-- [ ] Validação de tokens
-
-### Funcionalidades:
-- [ ] Filtros avançados
-- [ ] Paginação
-- [ ] Upload de documentos
-- [ ] Relatórios
-
----
 
 **🎉 Integração Completa Realizada!**
 *Frontend Angular + Backend Spring Boot funcionando juntos*
