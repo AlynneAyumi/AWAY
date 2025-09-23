@@ -2,10 +2,11 @@ package com.example.away.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 import java.util.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Data
 @Entity
@@ -36,10 +37,12 @@ public class Assistido {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idPessoa")
     @JsonManagedReference
+    @ToString.Exclude
     private Pessoa pessoa;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "assistido")
-    @JsonManagedReference
+    @JsonBackReference
+    @ToString.Exclude
     private List<Comparecimento> comparecimentos;
 
     @OneToOne(cascade = CascadeType.ALL)

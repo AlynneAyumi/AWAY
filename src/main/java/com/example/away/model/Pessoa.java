@@ -3,6 +3,7 @@ package com.example.away.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import lombok.ToString;
 import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -44,6 +45,7 @@ public class Pessoa {
 
     @OneToOne(mappedBy = "pessoa")
     @JsonBackReference
+    @ToString.Exclude
     private Assistido assistido;
 
     @OneToOne(cascade = CascadeType.ALL)

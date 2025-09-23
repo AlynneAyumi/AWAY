@@ -1,9 +1,10 @@
 package com.example.away.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import lombok.ToString;
 import java.util.*;
 
 @Data
@@ -21,6 +22,8 @@ public class Comparecimento {
     @NotNull
     private Boolean flagComparecimento;
 
+    private String observacoes;
+
     // Campos para Auditoria
     private Integer createdBy;
     private Date    creationDate;
@@ -30,7 +33,8 @@ public class Comparecimento {
     // Foreign Key
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAssistido")
-    @JsonBackReference
+    @JsonManagedReference
+    @ToString.Exclude
     private Assistido assistido;
 
 }

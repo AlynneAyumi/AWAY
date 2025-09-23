@@ -40,11 +40,15 @@ public class ComparecimentoController {
     @PostMapping("/save")
     public ResponseEntity<Comparecimento> save(@RequestBody Comparecimento comparecimento) {
         try {
+            System.out.println("Recebendo comparecimento para assistido ID: " + 
+                (comparecimento.getAssistido() != null ? comparecimento.getAssistido().getIdAssistido() : "null"));
             Comparecimento response = comparecimentoService.save(comparecimento);
+            System.out.println("Comparecimento salvo com sucesso - ID: " + response.getIdComparecimento());
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println("Erro ao salvar comparecimento: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.badRequest().build();
         }
     }

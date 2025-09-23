@@ -24,7 +24,7 @@ public class ComparecimentoService {
     }
     
     public List<Comparecimento> findAll() {
-        return comparecimentoRepository.findAll();
+        return comparecimentoRepository.findAllWithAssistido();
     }
 
     public Comparecimento findById(Long id) {
@@ -32,16 +32,21 @@ public class ComparecimentoService {
     }
 
     public Comparecimento save(Comparecimento comparecimento) {
+        System.out.println("Salvando comparecimento para assistido ID: " + 
+            (comparecimento.getAssistido() != null ? comparecimento.getAssistido().getIdAssistido() : "null"));
         Date hoje = UtilService.getDataAtual();
 
         // Verifica se assistido não esta nulo e persiste dentro de comparecimento
         if (comparecimento.getAssistido() != null && comparecimento.getAssistido().getIdAssistido() != null) {
+            System.out.println("Buscando assistido com ID: " + comparecimento.getAssistido().getIdAssistido());
             Assistido assistidoBanco = assistidoRepository
                 .findById(comparecimento.getAssistido().getIdAssistido())
                 .orElseThrow(() -> new RuntimeException("Assistido não encontrado"));
             
+            System.out.println("Assistido encontrado com sucesso");
             comparecimento.setAssistido(assistidoBanco);
         } else {
+            System.out.println("Assistido é nulo ou ID é nulo");
             throw new RuntimeException("Assistido é obrigatório");
         }
 
@@ -77,7 +82,10 @@ public class ComparecimentoService {
         comparecimento.setCreatedBy(1);
         comparecimento.setCreationDate(hoje);
 
-        return comparecimentoRepository.save(comparecimento);
+        System.out.println("Salvando comparecimento final");
+        Comparecimento resultado = comparecimentoRepository.save(comparecimento);
+        System.out.println("Comparecimento salvo com sucesso - ID: " + resultado.getIdComparecimento());
+        return resultado;
     }
 
     public Comparecimento update(Long id, Comparecimento comparecimento) {
@@ -94,20 +102,31 @@ public class ComparecimentoService {
         if (comparecimento.getFlagComparecimento() != null) {
             update.setFlagComparecimento(comparecimento.getFlagComparecimento());
         }
+        if (comparecimento.getObservacoes() != null) {
+            update.setObservacoes(comparecimento.getObservacoes());
+        }
         if (comparecimento.getAssistido() != null && comparecimento.getAssistido().getIdAssistido() != null) {
-            update.setAssistido(comparecimento.getAssistido());
+            Assistido assistidoBanco = assistidoRepository
+                .findById(comparecimento.getAssistido().getIdAssistido())
+                .orElseThrow(() -> new RuntimeException("Assistido não encontrado"));
+            update.setAssistido(assistidoBanco);
         }
 
         Date hoje = UtilService.getDataAtual();
         update.setLastUpdateDate(hoje);
         update.setLastUpdatedBy(1);
 
-        return comparecimentoRepository.save(update);
+        System.out.println("Atualizando comparecimento ID: " + id);
+        Comparecimento resultado = comparecimentoRepository.save(update);
+        System.out.println("Comparecimento atualizado com sucesso - ID: " + resultado.getIdComparecimento());
+        return resultado;
     }
 
     public void delete(Long id) {
+        System.out.println("Excluindo comparecimento com ID: " + id);
         Comparecimento comparecimento = findById(id);
         comparecimentoRepository.delete(comparecimento);
+        System.out.println("Comparecimento excluído com sucesso");
     }
 
 
