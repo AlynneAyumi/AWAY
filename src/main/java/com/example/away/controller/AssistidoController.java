@@ -6,6 +6,8 @@ import com.example.away.model.*;
 import com.example.away.service.AssistidoService;
 import com.example.away.service.PessoaService;
 import com.example.away.service.EnderecoService;
+import com.example.away.exception.ResourceNotFoundException;
+import com.example.away.exception.BusinessException;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -28,20 +30,17 @@ public class AssistidoController {
 
     @GetMapping("/findAll")
     public ResponseEntity<List<Assistido>> findAll() {
-        try {
-            List<Assistido> response = assistidoService.findAll();
-            return new ResponseEntity<>(response, HttpStatus.OK); 
-
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        List<Assistido> response = assistidoService.findAll();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/save")
     public ResponseEntity<Map<String, Object>> save(@RequestBody AssistidoCreateRequest request) {
+        if (request == null || request.getPessoa() == null) {
+            throw new BusinessException("Dados do assistido são obrigatórios", "MISSING_DATA");
+        }
+        
         try {
-            System.out.println("Recebendo requisição: " + request);
-            
             // Criar endereco sem validações obrigatórias por enquanto
             Endereco endereco = new Endereco();
             endereco.setRua(request.getPessoa().getEndereco().getLogradouro());
@@ -97,24 +96,17 @@ public class AssistidoController {
             
             return new ResponseEntity<>(response, HttpStatus.CREATED);
         } catch (Exception e) {
-            e.printStackTrace();
-            Map<String, Object> errorResponse = new HashMap<>();
-            errorResponse.put("success", false);
-            errorResponse.put("message", "Erro ao cadastrar assistido: " + e.getMessage());
-            errorResponse.put("error", e.getClass().getSimpleName());
-            
-            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+            throw new BusinessException("Erro ao cadastrar assistido: " + e.getMessage(), "SAVE_ERROR", e);
         }
     }
 
     @GetMapping("/findById/{id}")
     public ResponseEntity<Assistido> findById(@PathVariable Long id) {
-        try {
-            var result = assistidoService.findById(id);
-            return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Atalho pro ResponseEntity 400
+        Assistido result = assistidoService.findById(id);
+        if (result == null) {
+            throw new ResourceNotFoundException("Assistido", "id", id);
         }
+        return ResponseEntity.ok(result);
     }
 
     @PutMapping("/update/{id}")
@@ -238,28 +230,14 @@ public class AssistidoController {
     // Consultas com Métodos Automáticos
     @GetMapping("/numAuto")
     public ResponseEntity<List<Assistido>> buscarPorNumAuto(@RequestParam(name = "numAuto") String numAuto) {
-
-        try {
-            List<Assistido> assistidos = assistidoService.buscarPorNumAuto(numAuto);
-            return ResponseEntity.ok(assistidos); // OK 200
-
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build(); // NOT_FOUND 404
-        }
-
+        List<Assistido> assistidos = assistidoService.buscarPorNumAuto(numAuto);
+        return ResponseEntity.ok(assistidos);
     }
 
     @GetMapping("/numProcesso")
     public ResponseEntity<List<Assistido>> buscarPorNumProcesso(@RequestParam(name = "numProcesso") String numProcesso) {
-
-        try {
-            List<Assistido> assistidos = assistidoService.buscarPorNumProcesso(numProcesso);
-            return ResponseEntity.ok(assistidos); // OK 200
-
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build(); // NOT_FOUND 404
-        }
-
+        List<Assistido> assistidos = assistidoService.buscarPorNumProcesso(numProcesso);
+        return ResponseEntity.ok(assistidos);
     }
     
 }

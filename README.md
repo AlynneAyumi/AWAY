@@ -1,53 +1,116 @@
-# AWAY
-Projeto Integrador de Extensão do Curso de Análise e Desenvolvimento de Sistemas &
-Engenharia de Software. 
+# AWAY - Sistema Patronato Penitenciário (Backend)
 
-## Sobre o Projeto
+Sistema de gestão para patronato penitenciário desenvolvido em Spring Boot.
 
-O AWAY é um sistema de acompanhamento de pessoas em regime de liberdade assistida. 
-## Tecnologias Utilizadas
+## 🚀 Tecnologias
 
-- **Backend**: Java com Spring Boot
-- **Banco de Dados**: PostgreSQL
-- **Build Tool**: Maven
-- **IDE Recomendada**: IntelliJ IDEA ou Eclipse
+- **Java 17**
+- **Spring Boot 3.5.4**
+- **Spring Data JPA**
+- **PostgreSQL**
+- **Maven**
+- **Hibernate**
 
-## Estrutura do Projeto
+## 📋 Funcionalidades
+
+### Entidades Principais
+- **Assistidos** - Gestão de pessoas em regime penitenciário
+- **Usuários** - Sistema de autenticação e autorização
+- **Comparecimentos** - Controle de presença
+- **Documentos** - Gestão de documentação
+- **Endereços** - Cadastro de endereços
+
+### APIs Disponíveis
+- `GET /assistido/findAll` - Listar todos os assistidos
+- `POST /assistido/save` - Criar novo assistido
+- `PUT /assistido/update/{id}` - Atualizar assistido
+- `DELETE /assistido/delete/{id}` - Excluir assistido
+- `GET /usuario/findAll` - Listar usuários
+- `POST /auth/login` - Autenticação
+- E muito mais...
+
+## 🛠️ Como Executar
+
+### Pré-requisitos
+- Java 17+
+- Maven 3.6+
+- PostgreSQL 12+
+
+### Configuração do Banco
+1. Crie um banco PostgreSQL chamado `away_db`
+2. Configure as credenciais no `application.properties`
+
+### Executando
+```bash
+# Instalar dependências
+mvn clean install
+
+# Executar aplicação
+mvn spring-boot:run
+```
+
+A aplicação estará disponível em: `http://localhost:8080`
+
+## 📁 Estrutura do Projeto
 
 ```
 src/main/java/com/example/away/
-├── controller/     # Controladores REST
-├── model/         # Entidades do banco de dados
-├── repository/    # Interfaces de acesso a dados
-└── service/       # Lógica de negócio
+├── controller/     # Controllers REST
+├── model/         # Entidades JPA
+├── repository/    # Repositórios Spring Data
+├── service/       # Lógica de negócio
+├── dto/          # Data Transfer Objects
+├── exception/    # Tratamento de exceções
+└── config/       # Configurações
 ```
 
-## Como Executar
+## 🔧 Configurações
 
-### Pré-requisitos
-- Java 11 ou superior
-- Maven 3.6+
-- PostgreSQL instalado e rodando na porta 5432
+### application.properties
+```properties
+# Database
+spring.datasource.url=jdbc:postgresql://localhost:5432/away_db
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
 
-### Passos para execução
-1. Clone o repositório
-2. Crie um banco de dados PostgreSQL chamado `AWAY`
-3. Configure as credenciais do banco no arquivo `src/main/resources/application.properties`
-4. Execute: `mvn spring-boot:run`
-5. Acesse: `http://localhost:8080`
+# JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
 
-## Funcionalidades Principais
+## 📝 Dados de Teste
 
-- Controle de comparecimentos
-- Cadastro de endereços
-- Tipos de monitoramento e regime
-- Controle de usuários
+O sistema inclui dados de teste que são carregados automaticamente:
+- Usuários: admin@away.com / admin123
+- Assistidos de exemplo
+- Endereços de teste
 
+## 🚨 Tratamento de Exceções
 
-## Licença
+Sistema implementa `GlobalExceptionHandler` com:
+- Tratamento centralizado de exceções
+- Respostas padronizadas
+- Logs estruturados
+- Códigos HTTP apropriados
 
-Este projeto está sob a licença Apache 2.0. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+## 📊 Status do Projeto
 
+- ✅ Controllers refatorados
+- ✅ GlobalExceptionHandler implementado
+- ✅ CRUDs completos
+- ✅ Endpoints personalizados
+- ✅ Validações JPA
+- ✅ Relacionamentos mapeados
+- ✅ Tratamento de exceções centralizado
 
----
-*Desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas & Engenharia de Software da Uniamerica*
+## 👥 Contribuição
+
+1. Fork o projeto
+2. Crie uma branch para sua feature
+3. Commit suas mudanças
+4. Push para a branch
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
