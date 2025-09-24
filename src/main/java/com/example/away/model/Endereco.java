@@ -1,7 +1,6 @@
 package com.example.away.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 
@@ -18,8 +17,10 @@ public class Endereco {
     private String  bairro;
     private String  cidade;
     private String  estado;
-    private String  rua;
-    private Integer numero;
+    @Column(name = "rua")
+    private String  logradouro;
+    private String  numero;
+    private String  complemento;
 
 
     // Campos para Auditoria

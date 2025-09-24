@@ -1,6 +1,6 @@
 package com.example.away.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -33,7 +33,7 @@ public class Comparecimento {
     // Foreign Key
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idAssistido")
-    @JsonManagedReference
+    @JsonBackReference("assistido-comparecimentos")
     @ToString.Exclude
     private Assistido assistido;
 

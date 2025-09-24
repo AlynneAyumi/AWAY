@@ -14,7 +14,6 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*") // Temporário - configurar CORS global depois
 public class AuthController {
 
     @Autowired

@@ -6,7 +6,6 @@ import lombok.ToString;
 import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Data
 @Entity
@@ -36,12 +35,12 @@ public class Assistido {
     // Foreign Key's
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idPessoa")
-    @JsonManagedReference
+    @JsonManagedReference("assistido-pessoa")
     @ToString.Exclude
     private Pessoa pessoa;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "assistido")
-    @JsonBackReference
+    @JsonManagedReference("assistido-comparecimentos")
     @ToString.Exclude
     private List<Comparecimento> comparecimentos;
 

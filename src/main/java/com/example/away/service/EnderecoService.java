@@ -40,7 +40,7 @@ public class EnderecoService {
         update.setBairro(endereco.getBairro());
         update.setCidade(endereco.getCidade());
         update.setEstado(endereco.getEstado());
-        update.setRua(endereco.getRua());
+        update.setLogradouro(endereco.getLogradouro());
         update.setNumero(endereco.getNumero());
 
         Date hoje = UtilService.getDataAtual();

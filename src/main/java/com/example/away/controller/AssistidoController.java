@@ -43,12 +43,12 @@ public class AssistidoController {
         try {
             // Criar endereco sem validações obrigatórias por enquanto
             Endereco endereco = new Endereco();
-            endereco.setRua(request.getPessoa().getEndereco().getLogradouro());
+            endereco.setLogradouro(request.getPessoa().getEndereco().getLogradouro());
             endereco.setCep("00000-000");
             endereco.setBairro("A definir");
             endereco.setCidade("A definir");
             endereco.setEstado("A definir");
-            endereco.setNumero(0);
+            endereco.setNumero("0");
             endereco.setCreationDate(new Date());
             
             // Criar pessoa
@@ -146,7 +146,7 @@ public class AssistidoController {
                 // Atualizar endereço se existir
                 if (pessoa.getEndereco() != null && request.getPessoa().getEndereco() != null) {
                     Endereco endereco = pessoa.getEndereco();
-                    endereco.setRua(request.getPessoa().getEndereco().getLogradouro());
+                    endereco.setLogradouro(request.getPessoa().getEndereco().getLogradouro());
                     if (request.getPessoa().getEndereco().getCep() != null) {
                         endereco.setCep(request.getPessoa().getEndereco().getCep());
                     }
@@ -160,7 +160,7 @@ public class AssistidoController {
                         endereco.setEstado(request.getPessoa().getEndereco().getEstado());
                     }
                     if (request.getPessoa().getEndereco().getNumero() != null) {
-                        endereco.setNumero(request.getPessoa().getEndereco().getNumero());
+                        endereco.setNumero(request.getPessoa().getEndereco().getNumero().toString());
                     }
                     
                     enderecoService.save(endereco);

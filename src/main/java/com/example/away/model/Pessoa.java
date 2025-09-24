@@ -32,6 +32,8 @@ public class Pessoa {
     @NotEmpty(message = "Telefone é obrigatório")
     private String  telefone;
 
+    private String  email;
+
     // Campos para Auditoria
     private Integer createdBy;
     private Date    creationDate;
@@ -44,12 +46,12 @@ public class Pessoa {
     private Endereco endereco;
 
     @OneToOne(mappedBy = "pessoa")
-    @JsonBackReference
+    @JsonBackReference("assistido-pessoa")
     @ToString.Exclude
     private Assistido assistido;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario")
+    @OneToOne(mappedBy = "pessoa")
+    @JsonBackReference("usuario-pessoa")
     private Usuario usuario;
 
 }

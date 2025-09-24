@@ -2,13 +2,17 @@
 -- Este script será executado automaticamente pelo Spring Boot
 
 -- Inserir usuário de teste para login
-INSERT INTO usuario (email, nome_user, senha, created_by, creation_date, tipo_acesso) 
-VALUES ('admin@away.com', 'admin', 'admin123', 1, CURRENT_TIMESTAMP, 1)
+INSERT INTO usuario (email, nome_user, senha, perfil, ativo, created_by, creation_date, tipo_acesso) 
+VALUES ('admin@away.com', 'admin', 'admin123', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 1)
 ON CONFLICT (email) DO NOTHING;
 
-INSERT INTO usuario (email, nome_user, senha, created_by, creation_date, tipo_acesso) 
-VALUES ('usuario@away.com', 'usuario', '123456', 1, CURRENT_TIMESTAMP, 2)
+INSERT INTO usuario (email, nome_user, senha, perfil, ativo, created_by, creation_date, tipo_acesso) 
+VALUES ('usuario@away.com', 'usuario', '123456', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 2)
 ON CONFLICT (email) DO NOTHING;
+
+-- Atualizar usuários existentes que podem ter o campo ativo como NULL
+UPDATE usuario SET ativo = true WHERE ativo IS NULL;
+UPDATE usuario SET perfil = 'AGENTE' WHERE perfil IS NULL;
 
 -- Inserir dados de teste para assistidos
 INSERT INTO endereco (rua, cep, bairro, cidade, estado, numero, created_by, creation_date) 
