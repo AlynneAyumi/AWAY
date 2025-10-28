@@ -5,7 +5,6 @@ import com.example.away.exception.BusinessException;
 import com.example.away.exception.ValidationException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
 
 import java.util.Arrays;
 import java.util.List;

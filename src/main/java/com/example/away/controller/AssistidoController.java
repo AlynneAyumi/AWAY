@@ -5,6 +5,9 @@ import com.example.away.dto.AssistidoUpdateRequest;
 import com.example.away.model.*;
 import com.example.away.service.AssistidoService;
 import com.example.away.service.PessoaService;
+
+import lombok.Data;
+
 import com.example.away.service.EnderecoService;
 import com.example.away.exception.ResourceNotFoundException;
 import com.example.away.exception.BusinessException;
@@ -16,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 
+@Data
 @RestController
 @RequestMapping("/assistido")
 public class AssistidoController {
@@ -240,4 +244,11 @@ public class AssistidoController {
         return ResponseEntity.ok(assistidos);
     }
     
+    public void setAssistidoService(AssistidoService assistidoService) {
+        this.assistidoService = assistidoService;
+    }
+
+    public void setEnderecoService(EnderecoService enderecoService) {
+        this.enderecoService = enderecoService;
+    }
 }
