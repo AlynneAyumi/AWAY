@@ -243,12 +243,4 @@ public class AssistidoController {
         List<Assistido> assistidos = assistidoService.buscarPorNumProcesso(numProcesso);
         return ResponseEntity.ok(assistidos);
     }
-    
-    public void setAssistidoService(AssistidoService assistidoService) {
-        this.assistidoService = assistidoService;
-    }
-
-    public void setEnderecoService(EnderecoService enderecoService) {
-        this.enderecoService = enderecoService;
-    }
 }
