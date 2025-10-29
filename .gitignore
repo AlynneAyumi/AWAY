@@ -41,6 +41,7 @@ backend.log
 # Spring Boot
 application-local.properties
 application-dev.properties
+application.properties
 
 # Temporary files
 *.tmp
