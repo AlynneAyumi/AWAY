@@ -51,9 +51,15 @@ O projeto segue a **Pirâmide de Testes**, priorizando testes unitários:
 Testam componentes isolados (Services) com dependências mockadas.
 
 **Classes existentes**:
-- `AssistidoServiceTest.java` (parcial)
-- `EnderecoServiceTest.java` (completo)
-- `UsuarioServiceTest.java` (completo)
+- `AssistidoServiceTest.java`
+- `PessoaServiceTest.java`
+- `EnderecoServiceTest.java` 
+- `UsuarioServiceTest.java` 
+- `TipoMonitoramentoServiceTest` 
+- `TipoRegimeServiceTest`
+- `TipoSituacaoServiceTest`
+
+
 
 **Estrutura básica**:
 ```java
@@ -73,7 +79,17 @@ class ServiceTest {
 Testam a interação entre Controller e Services, validando respostas HTTP.
 
 **Classe existente**:
-- `AssistidoIntegrationTest.java` (completo)
+- `AssistidoIntegrationTest.java`
+- `AuthControllerIntegrationTest.java`
+- `ComparecimentoIntegrationTest.java`
+- `EnderecoIntegrationTest.java`
+- `MonitoramentoIntegrationTest.java`
+- `PessoalIntegrationTest.java`
+- `TestControllerIntegrationTest.java`
+- `TipoRegimeIntegrationTest.java`
+- `TipoSituacaoIntegrationTest.java`
+- `UsuarioIntegrationTest.java`
+- `VaraExecPenalIntegrationTest.java`
 
 ### 3. Teste de Contexto
 **Localização**: `src/test/java/com/example/away/AwayApplicationTests.java`
