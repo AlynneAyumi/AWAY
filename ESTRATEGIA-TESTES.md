@@ -157,12 +157,12 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 ## Status dos Testes
 
 ### Testes Unitários
-- ✅ **EnderecoServiceTest**: Completo (12 cenários)
-- ✅ **UsuarioServiceTest**: Completo (11 cenários)
-- ⚠️ **AssistidoServiceTest**: Parcial (3 cenários) - faltam: save, delete, findAll, buscas
+- **EnderecoServiceTest**: Completo (12 cenários)
+- **UsuarioServiceTest**: Completo (11 cenários)
+- **AssistidoServiceTest**: Parcial (3 cenários) 
 
 ### Testes de Integração
-- ✅ **AssistidoIntegrationTest**: Completo (14 cenários)
+- **AssistidoIntegrationTest**: Completo (14 cenários)
 
 ---
 
