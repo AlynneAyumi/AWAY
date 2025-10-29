@@ -1,6 +1,8 @@
 package com.example.away.controller;
 
 import org.springframework.web.bind.annotation.*;
+
+import com.example.away.exception.ResourceNotFoundException;
 import com.example.away.model.Comparecimento;
 import com.example.away.service.ComparecimentoService;
 import java.util.*;
@@ -30,12 +32,12 @@ public class ComparecimentoController {
     public ResponseEntity<Comparecimento> findById(@PathVariable Long id) {
         try {
             Comparecimento response = comparecimentoService.findById(id);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build(); // 404
+            return ResponseEntity.ok(response);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
     
     @PostMapping("/save")
     public ResponseEntity<Comparecimento> save(@RequestBody Comparecimento comparecimento) {

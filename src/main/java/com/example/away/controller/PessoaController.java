@@ -1,5 +1,6 @@
 package com.example.away.controller;
 
+import com.example.away.exception.ResourceNotFoundException;
 import com.example.away.model.Pessoa;
 import com.example.away.service.PessoaService;
 import jakarta.validation.Valid;
@@ -40,13 +41,13 @@ public class PessoaController {
 
     @GetMapping("/findById/{id}")
     public ResponseEntity<Pessoa> findById(@PathVariable Long id) {
-        try {
-            var result = pessoaService.findById(id);
-            return ResponseEntity.ok(result); // Atalho pro ResponseEntity 200
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build(); // Atalho pro ResponseEntity 400
+        Pessoa pessoa = pessoaService.findById(id);
+        if (pessoa == null) {
+            throw new ResourceNotFoundException("Pessoa não encontrada");
         }
+        return ResponseEntity.ok(pessoa);
     }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
