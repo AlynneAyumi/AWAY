@@ -178,23 +178,4 @@ mvn clean test jacoco:report               # Com relatório de cobertura
 
 ---
 
-## Próximos Passos
-
-### Prioridade Alta
-- [ ] Finalizar `AssistidoServiceTest.java`
-- [ ] Criar testes para outros Services (Pessoa, Comparecimento, etc.)
-- [ ] Criar testes de integração para outros Controllers
-
-### Prioridade Média
-- [ ] Testes de validação de DTOs
-- [ ] Cobertura completa do `GlobalExceptionHandler`
-- [ ] Testes de segurança (autenticação/autorização)
-
-### Prioridade Baixa
-- [ ] Testes de performance
-- [ ] TestContainers para PostgreSQL real
-- [ ] CI/CD para execução automática
-
----
-
 
