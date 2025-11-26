@@ -2,6 +2,8 @@ package com.example.away.service;
 
 import java.sql.Date;
 import java.util.List;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Usuario;
 import com.example.away.repository.UsuarioRepository;
@@ -11,9 +13,11 @@ import jakarta.persistence.EntityNotFoundException;
 public class UsuarioService {
     
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
     
     public List<Usuario> findAll() {
@@ -57,6 +61,10 @@ public class UsuarioService {
                 usuario.getPessoa().setSegundoNome("");
             }
         }
+
+        // Criptogradar senha antes de salvar
+        String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+        usuario.setSenha(senhaCriptografada);
 
         return usuarioRepository.save(usuario);
     }

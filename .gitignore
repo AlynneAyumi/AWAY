@@ -42,6 +42,7 @@ backend.log
 application-local.properties
 application-dev.properties
 application.properties
+src\main\resources\application.properties
 
 # Temporary files
 *.tmp
