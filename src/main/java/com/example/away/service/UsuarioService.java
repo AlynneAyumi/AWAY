@@ -3,6 +3,9 @@ package com.example.away.service;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Usuario;
@@ -10,7 +13,7 @@ import com.example.away.repository.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements UserDetailsService {
     
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
@@ -62,9 +65,11 @@ public class UsuarioService {
             }
         }
 
-        // Criptogradar senha antes de salvar
-        String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
-        usuario.setSenha(senhaCriptografada);
+        // Criptografar senha antes de salvar
+        if (usuario.getSenha() != null && !usuario.getSenha().trim().isEmpty()) {
+            String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+            usuario.setSenha(senhaCriptografada);
+        }
 
         return usuarioRepository.save(usuario);
     }
@@ -75,13 +80,18 @@ public class UsuarioService {
         update.setEmail(usuario.getEmail());
         update.setNomeUser(usuario.getNomeUser());
         update.setNome(usuario.getNome());
-        update.setSenha(usuario.getSenha());
         update.setTipoAcesso(usuario.getTipoAcesso());
         update.setPerfil(usuario.getPerfil());
         update.setAtivo(usuario.getAtivo());
 
         Date hoje = UtilService.getDataAtual();
         update.setLastUpdateDate(hoje);
+
+        // Apenas criptografa se a senha FOI passada para atualização
+        if (usuario.getSenha() != null && !usuario.getSenha().trim().isEmpty()) {
+            String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+            update.setSenha(senhaCriptografada);
+        }
 
         // Atualizar pessoa se existir
         if (usuario.getPessoa() != null && update.getPessoa() != null) {
@@ -124,6 +134,18 @@ public class UsuarioService {
 
     public Usuario findByEmail(String email) {
         return usuarioRepository.findByEmail(email);
+    }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+
+        if (usuario == null) {
+            throw new UsernameNotFoundException("Usuário não encontrado com o email: " + email);
+        }
+
+        return usuario;
     }
     
 }

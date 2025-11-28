@@ -5,11 +5,14 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Data
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,4 +49,48 @@ public class Usuario {
     @JsonManagedReference("usuario-pessoa")
     private Pessoa pessoa;
 
+
+    // Retorna as permissões/cargos do usuário (Authorities).
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_" + perfil));
+    }
+
+    // Retorna a senha usada para autenticar o usuário
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    // Retorna o nome de usuário único usado para autenticar o usuário
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    // Indica se a conta do usuário expirou
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    // Indica se o usuário está bloqueado
+    @Override
+    public boolean isAccountNonLocked() {
+        // Se 'ativo' for TRUE, a conta NÃO está bloqueada
+        return this.ativo != null && this.ativo;
+    }
+
+    // Indica se as credenciais (senha) do usuário expiraram
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    // Indica se o usuário está ativo/habilitado
+    @Override
+    public boolean isEnabled() {
+        // Retorna o status de ativo
+        return this.ativo != null && this.ativo;
+    }
 }
