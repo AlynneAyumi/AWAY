@@ -22,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 @Data
 @RestController
 @RequestMapping("/assistido")
+@CrossOrigin(origins = "*")
 public class AssistidoController {
     @Autowired
     private AssistidoService assistidoService;

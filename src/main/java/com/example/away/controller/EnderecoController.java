@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/endereco")
+@CrossOrigin(origins = "*")
 public class EnderecoController {
     @Autowired
     private EnderecoService enderecoService;

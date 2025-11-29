@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/test")
+@CrossOrigin(origins = "*")
 public class TestController {
 
     /**

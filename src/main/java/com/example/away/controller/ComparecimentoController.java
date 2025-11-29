@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/comparecimento")
+@CrossOrigin(origins = "*")
 public class ComparecimentoController {
     @Autowired
     private ComparecimentoService comparecimentoService;
