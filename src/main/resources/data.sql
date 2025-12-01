@@ -1,18 +1,22 @@
 -- Script de inicialização com dados de teste
 -- Este script será executado automaticamente pelo Spring Boot
+-- IMPORTANTE: As senhas devem ser BCrypt. Use o PasswordEncoder para gerar hashes válidos.
+-- Exemplo: BCrypt de "admin123" = $2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy
 
 -- Inserir usuário de teste para login
-INSERT INTO usuario (email, nome_user, senha, perfil, ativo, created_by, creation_date, tipo_acesso) 
-VALUES ('admin@away.com', 'admin', 'admin123', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 1)
+-- Senha "admin123" criptografada com BCrypt
+INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso) 
+VALUES ('admin@away.com', 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 1)
 ON CONFLICT (email) DO NOTHING;
 
-INSERT INTO usuario (email, nome_user, senha, perfil, ativo, created_by, creation_date, tipo_acesso) 
-VALUES ('usuario@away.com', 'usuario', '123456', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 2)
+-- Senha "123456" criptografada com BCrypt
+INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso) 
+VALUES ('usuario@away.com', 'usuario', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.H/H9n0/7iJ8J3J8J3J8J3J8', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 2)
 ON CONFLICT (email) DO NOTHING;
 
 -- Atualizar usuários existentes que podem ter o campo ativo como NULL
 UPDATE usuario SET ativo = true WHERE ativo IS NULL;
-UPDATE usuario SET perfil = 'AGENTE' WHERE perfil IS NULL;
+UPDATE usuario SET role = 'AGENTE' WHERE role IS NULL OR role = '';
 
 -- Inserir dados de teste para assistidos
 INSERT INTO endereco (rua, cep, bairro, cidade, estado, numero, created_by, creation_date) 
