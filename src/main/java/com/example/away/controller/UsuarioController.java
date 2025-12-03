@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 
 @RestController
@@ -49,6 +50,7 @@ public class UsuarioController {
     
     
     @PutMapping("/update/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario usuario) {
         if (usuario == null) {
             throw new BusinessException("Dados do usuário são obrigatórios", "MISSING_DATA");
@@ -61,6 +63,7 @@ public class UsuarioController {
     }
     
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         // Verificar se o usuário existe antes de deletar
         Usuario usuario = usuarioService.findById(id);

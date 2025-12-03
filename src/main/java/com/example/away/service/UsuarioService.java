@@ -38,8 +38,8 @@ public class UsuarioService implements UserDetailsService {
         usuario.setCreationDate(hoje);
         
         // Definir valores padrão se não fornecidos
-        if (usuario.getRole() == null) {
-            usuario.setRole("AGENTE");
+        if (usuario.getRole() == null || usuario.getRole().trim().isEmpty()) {
+            usuario.setRole("FUNCIONARIO");
         }
         if (usuario.getAtivo() == null) {
             usuario.setAtivo(true);

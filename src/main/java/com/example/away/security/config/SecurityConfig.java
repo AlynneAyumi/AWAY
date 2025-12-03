@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Value;
 import java.util.Arrays;
 
 @Configuration
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Autowired
@@ -58,6 +59,13 @@ public class SecurityConfig {
                     "/usuario/save",      // registrar usuário
                     "/usuario/findById/*"
                 ).permitAll()
+                
+                // Rotas que exigem ROLE_ADMIN
+                .requestMatchers(
+                    "/usuario/findAll",    // Listar usuários - apenas ADMIN
+                    "/usuario/delete/**",  // Deletar usuário - apenas ADMIN
+                    "/usuario/update/**"   // Atualizar usuário - apenas ADMIN
+                ).hasRole("ADMIN")
 
                 .anyRequest().authenticated()
             )

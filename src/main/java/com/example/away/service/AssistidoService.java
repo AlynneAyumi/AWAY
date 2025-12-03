@@ -2,9 +2,6 @@ package com.example.away.service;
 
 import java.util.*;
 
-import com.example.away.model.Comparecimento;
-import com.example.away.model.Pessoa;
-import com.example.away.model.Endereco;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Assistido;
 import com.example.away.repository.AssistidoRepository;
@@ -15,9 +12,13 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class AssistidoService {
+    
+    private static final Logger logger = LoggerFactory.getLogger(AssistidoService.class);
     
     private final AssistidoRepository assistidoRepository;
     
@@ -79,19 +80,18 @@ public class AssistidoService {
 
     @Transactional
     public void delete(Long id) {
-        System.out.println("Iniciando exclusão do assistido ID: " + id);
+        logger.debug("Iniciando exclusão do assistido ID: {}", id);
         
         try {
             // 1. Deletar comparecimentos relacionados
             jdbcTemplate.update("DELETE FROM comparecimento WHERE id_assistido = ?", id);
-            System.out.println("Deletados comparecimentos relacionados");
+            logger.debug("Deletados comparecimentos relacionados para assistido ID: {}", id);
             
             // 2. Remover referência de endereço na pessoa
             jdbcTemplate.update("UPDATE pessoa SET id_endereco = NULL WHERE id_assistido = ?", id);
-            System.out.println("Removidas referências de endereço na pessoa");
+            logger.debug("Removidas referências de endereço na pessoa para assistido ID: {}", id);
             
-            // 3. Deletar endereços usando uma abordagem mais simples
-            // Primeiro vamos buscar os IDs dos endereços para deletar
+            // 3. Deletar endereços relacionados
             List<Long> enderecoIds = jdbcTemplate.queryForList(
                 "SELECT id_endereco FROM pessoa WHERE id_assistido = ? AND id_endereco IS NOT NULL", 
                 Long.class, id);
@@ -99,23 +99,20 @@ public class AssistidoService {
             for (Long enderecoId : enderecoIds) {
                 jdbcTemplate.update("DELETE FROM endereco WHERE id_endereco = ?", enderecoId);
             }
-            System.out.println("Deletados " + enderecoIds.size() + " endereços relacionados");
+            logger.debug("Deletados {} endereços relacionados para assistido ID: {}", enderecoIds.size(), id);
             
             // 4. Deletar pessoas relacionadas
             jdbcTemplate.update("DELETE FROM pessoa WHERE id_assistido = ?", id);
-            System.out.println("Deletadas pessoas relacionadas");
+            logger.debug("Deletadas pessoas relacionadas para assistido ID: {}", id);
             
             // 5. Por último, deletar o assistido
             jdbcTemplate.update("DELETE FROM assistido WHERE id_assistido = ?", id);
-            System.out.println("Deletado assistido ID: " + id);
+            logger.info("Assistido ID: {} excluído com sucesso", id);
             
         } catch (Exception e) {
-            System.err.println("Erro ao deletar assistido: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Erro ao deletar assistido ID: {}", id, e);
             throw e; // Re-throw para que o controller possa capturar
         }
-        
-        System.out.println("Exclusão do assistido " + id + " concluída com sucesso!");
     }
 
 

@@ -17,6 +17,8 @@ import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Data
@@ -24,6 +26,9 @@ import org.springframework.http.ResponseEntity;
 @RequestMapping("/assistido")
 @CrossOrigin(origins = "*")
 public class AssistidoController {
+    
+    private static final Logger logger = LoggerFactory.getLogger(AssistidoController.class);
+    
     @Autowired
     private AssistidoService assistidoService;
     
@@ -118,7 +123,7 @@ public class AssistidoController {
     public ResponseEntity<Map<String, Object>> update(@PathVariable Long id,
                                                       @RequestBody AssistidoUpdateRequest request) {
         try {
-            System.out.println("Atualizando assistido ID: " + id + " com dados: " + request);
+            logger.debug("Atualizando assistido ID: {} com dados: {}", id, request);
             
             // Buscar assistido existente
             Assistido assistidoExistente = assistidoService.findById(id);
@@ -199,7 +204,7 @@ public class AssistidoController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Map<String, Object>> delete(@PathVariable Long id) {
         try {
-            System.out.println("Recebendo requisição de exclusão para assistido ID: " + id);
+            logger.debug("Recebendo requisição de exclusão para assistido ID: {}", id);
             
             // Verificar se o assistido existe antes de tentar deletar
             Assistido assistido = assistidoService.findById(id);

@@ -7,12 +7,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @RestController
 @RequestMapping("/endereco")
 @CrossOrigin(origins = "*")
 public class EnderecoController {
+    
+    private static final Logger logger = LoggerFactory.getLogger(EnderecoController.class);
+    
     @Autowired
     private EnderecoService enderecoService;
 
@@ -45,7 +50,7 @@ public class EnderecoController {
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
-            System.err.println(e);
+            logger.error("Erro ao salvar endereço: {}", e.getMessage(), e);
             return ResponseEntity.badRequest().build();
         }
     }

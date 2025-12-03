@@ -4,10 +4,14 @@ import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SpringBootApplication
 @EnableScheduling
 public class AwayApplication {
+
+	private static final Logger logger = LoggerFactory.getLogger(AwayApplication.class);
 
 	public static void main(String[] args) {
 		// Carrega o arquivo .env (opcional - se não existir, usa variáveis de ambiente do sistema)
@@ -22,7 +26,7 @@ public class AwayApplication {
 			);
 		} catch (Exception e) {
 			// Se não conseguir carregar .env, continua com variáveis de ambiente do sistema
-			System.out.println("Arquivo .env não encontrado, usando variáveis de ambiente do sistema");
+			logger.info("Arquivo .env não encontrado, usando variáveis de ambiente do sistema");
 		}
 
 		SpringApplication.run(AwayApplication.class, args);

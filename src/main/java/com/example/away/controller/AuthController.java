@@ -11,16 +11,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin(origins = "*")
 public class AuthController {
+
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
     private UsuarioService usuarioService;
@@ -65,11 +66,11 @@ public class AuthController {
             // Captura exceções como BadCredentialsException (senha errada) ou
             // UsernameNotFoundException (usuário não encontrado).
             if (e instanceof org.springframework.security.core.AuthenticationException) {
-                System.err.println("Falha na autenticação: Credenciais inválidas.");
+                logger.warn("Falha na autenticação: Credenciais inválidas para email: {}", loginRequest.getEmail());
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
 
-            System.err.println("Erro interno no login: " + e.getMessage());
+            logger.error("Erro interno no login: {}", e.getMessage(), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }

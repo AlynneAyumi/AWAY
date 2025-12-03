@@ -9,12 +9,17 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @RestController
 @RequestMapping("/comparecimento")
 @CrossOrigin(origins = "*")
 public class ComparecimentoController {
+    
+    private static final Logger logger = LoggerFactory.getLogger(ComparecimentoController.class);
+    
     @Autowired
     private ComparecimentoService comparecimentoService;
 
@@ -43,15 +48,14 @@ public class ComparecimentoController {
     @PostMapping("/save")
     public ResponseEntity<Comparecimento> save(@RequestBody Comparecimento comparecimento) {
         try {
-            System.out.println("Recebendo comparecimento para assistido ID: " + 
-                (comparecimento.getAssistido() != null ? comparecimento.getAssistido().getIdAssistido() : "null"));
+            Long assistidoId = comparecimento.getAssistido() != null ? comparecimento.getAssistido().getIdAssistido() : null;
+            logger.debug("Recebendo comparecimento para assistido ID: {}", assistidoId);
             Comparecimento response = comparecimentoService.save(comparecimento);
-            System.out.println("Comparecimento salvo com sucesso - ID: " + response.getIdComparecimento());
+            logger.info("Comparecimento salvo com sucesso - ID: {}", response.getIdComparecimento());
             return new ResponseEntity<>(response, HttpStatus.CREATED);
 
         } catch (Exception e) {
-            System.err.println("Erro ao salvar comparecimento: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Erro ao salvar comparecimento: {}", e.getMessage(), e);
             return ResponseEntity.badRequest().build();
         }
     }

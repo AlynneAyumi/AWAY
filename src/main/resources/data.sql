@@ -3,20 +3,23 @@
 -- IMPORTANTE: As senhas devem ser BCrypt. Use o PasswordEncoder para gerar hashes válidos.
 -- Exemplo: BCrypt de "admin123" = $2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy
 
--- Inserir usuário de teste para login
+-- Inserir usuário ADMIN de teste para login
 -- Senha "admin123" criptografada com BCrypt
 INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso) 
-VALUES ('admin@away.com', 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 1)
-ON CONFLICT (email) DO NOTHING;
+VALUES ('admin@away.com', 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ADMIN', true, 1, CURRENT_TIMESTAMP, 1)
+ON CONFLICT (email) DO UPDATE SET role = 'ADMIN';
 
--- Senha "123456" criptografada com BCrypt
+-- Inserir usuário FUNCIONARIO de teste
+-- Senha "func123" criptografada com BCrypt (gerar novo hash se necessário)
 INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso) 
-VALUES ('usuario@away.com', 'usuario', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.H/H9n0/7iJ8J3J8J3J8J3J8', 'AGENTE', true, 1, CURRENT_TIMESTAMP, 2)
-ON CONFLICT (email) DO NOTHING;
+VALUES ('funcionario@away.com', 'funcionario', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'FUNCIONARIO', true, 1, CURRENT_TIMESTAMP, 2)
+ON CONFLICT (email) DO UPDATE SET role = 'FUNCIONARIO';
 
 -- Atualizar usuários existentes que podem ter o campo ativo como NULL
 UPDATE usuario SET ativo = true WHERE ativo IS NULL;
-UPDATE usuario SET role = 'AGENTE' WHERE role IS NULL OR role = '';
+-- Converter roles antigos para os novos perfis
+UPDATE usuario SET role = 'ADMIN' WHERE role IN ('ADMINISTRADOR', 'ADMIN');
+UPDATE usuario SET role = 'FUNCIONARIO' WHERE role IS NULL OR role = '' OR role NOT IN ('ADMIN', 'FUNCIONARIO');
 
 -- Inserir dados de teste para assistidos
 INSERT INTO endereco (rua, cep, bairro, cidade, estado, numero, created_by, creation_date) 
