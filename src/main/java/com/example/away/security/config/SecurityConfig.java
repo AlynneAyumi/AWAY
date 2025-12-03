@@ -54,10 +54,9 @@ public class SecurityConfig {
 
             // Regras de acesso
             .authorizeHttpRequests(auth -> auth
+                // Permite acesso público aos endpoints de autenticação
                 .requestMatchers(
-                    "/auth/**",           // login, refresh, etc
-                    "/usuario/save",      // registrar usuário
-                    "/usuario/findById/*"
+                    "/auth/**"
                 ).permitAll()
                 
                 // Rotas que exigem ROLE_ADMIN
@@ -65,6 +64,13 @@ public class SecurityConfig {
                     "/usuario/findAll",    // Listar usuários - apenas ADMIN
                     "/usuario/delete/**",  // Deletar usuário - apenas ADMIN
                     "/usuario/update/**"   // Atualizar usuário - apenas ADMIN
+                ).hasRole("ADMIN")
+
+                // Permite acesso a usuarios e funções delete apenas para ADMIN
+                .requestMatchers(
+                    "/usuario/**",
+                    "/assistido/delete/**",
+                    "/comparecimento/delete/**"
                 ).hasRole("ADMIN")
 
                 .anyRequest().authenticated()
