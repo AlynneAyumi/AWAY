@@ -1,7 +1,4 @@
-package com.example.away.security.config;
-
-import com.example.away.security.filter.JwtAuthenticationFilter;
-import com.example.away.security.service.CustomUserDetailsService;
+package com.example.away.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +15,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -30,86 +29,46 @@ import java.util.Arrays;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    @Autowired
-    @Lazy
-    private JwtAuthenticationFilter jwtAuthFilter;
-
-    @Autowired
-    @Lazy
-    private CustomUserDetailsService customUserDetailsService;
-
     @Value("${cors.allowed.origins}")
     private String allowedOrigins;
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-
-            // Serviço de autenticação
-            .userDetailsService(customUserDetailsService)
-
-            // Regras de acesso
             .authorizeHttpRequests(auth -> auth
-                // Permite acesso público aos endpoints de autenticação
+                .requestMatchers("/auth/**").permitAll()
                 .requestMatchers(
-                    "/auth/**"
-                ).permitAll()
-                
-                // Rotas que exigem ROLE_ADMIN
-                .requestMatchers(
-                    "/usuario/findAll",    // Listar usuários - apenas ADMIN
-                    "/usuario/delete/**",  // Deletar usuário - apenas ADMIN
-                    "/usuario/update/**"   // Atualizar usuário - apenas ADMIN
+                        "/usuario/**",
+                        "/assistido/delete/**",
+                        "/comparecimento/delete/**"
                 ).hasRole("ADMIN")
-
-                // Permite acesso a usuarios e funções delete apenas para ADMIN
-                .requestMatchers(
-                    "/usuario/**",
-                    "/assistido/delete/**",
-                    "/comparecimento/delete/**"
-                ).hasRole("ADMIN")
-
                 .anyRequest().authenticated()
             )
-
-            // API stateless
             .sessionManagement(sess ->
                 sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
-
-            // Provider customizado
-            .authenticationProvider(authenticationProvider())
-
-            // Filtro JWT antes do UsernamePassword
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+            .oauth2ResourceServer(oauth2 -> oauth2.jwt(
+                    jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())
+            )
+        );
 
         return http.build();
     }
 
-
-    // Provider que usa o CustomUserDetailsService e BCrypt
     @Bean
-    public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(customUserDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
-        return authProvider;
-    }
+    public JwtAuthenticationConverter jwtAuthenticationConverter() {
+        JwtGrantedAuthoritiesConverter converter = new JwtGrantedAuthoritiesConverter();
 
-    // BCrypt
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        converter.setAuthoritiesClaimDelimiter("realm_access.roles");
+        converter.setAuthorityPrefix("ROLE_");
 
-    // AuthenticationManager para o login
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
+        JwtAuthenticationConverter jwtConverter = new JwtAuthenticationConverter();
+
+        jwtConverter.setJwtGrantedAuthoritiesConverter(converter);
+
+        return jwtConverter;
     }
 
     // Configuração CORS para Spring Security
@@ -126,7 +85,7 @@ public class SecurityConfig {
         configuration.setExposedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(false);
         configuration.setMaxAge(3600L);
-        
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

@@ -6,7 +6,7 @@
 -- Inserir usuário ADMIN de teste para login
 -- Senha "admin123" criptografada com BCrypt
 INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso) 
-VALUES ('admin@away.com', 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ADMIN', true, 1, CURRENT_TIMESTAMP, 1)
+VALUES ('admin@away.com', 'admin', '$2a$10$t12tOPpz2yb2VAQ/7p8GoeuRd/jGvBAtkK1K2UeZbm7bZn/CB/eZ6', 'ADMIN', true, 1, CURRENT_TIMESTAMP, 1)
 ON CONFLICT (email) DO UPDATE SET role = 'ADMIN';
 
 -- Inserir usuário FUNCIONARIO de teste

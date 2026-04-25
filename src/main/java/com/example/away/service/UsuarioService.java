@@ -3,9 +3,6 @@ package com.example.away.service;
 import java.sql.Date;
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Usuario;
@@ -13,14 +10,15 @@ import com.example.away.repository.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
-public class UsuarioService implements UserDetailsService {
+public class UsuarioService {
     
     private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+//    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = passwordEncoder;
     }
     
     public List<Usuario> findAll() {
@@ -67,7 +65,7 @@ public class UsuarioService implements UserDetailsService {
 
         // Criptografar senha antes de salvar
         if (usuario.getSenha() != null && !usuario.getSenha().trim().isEmpty()) {
-            String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+            String senhaCriptografada = this.passwordEncoder.encode(usuario.getSenha());
             usuario.setSenha(senhaCriptografada);
         }
 
@@ -89,7 +87,7 @@ public class UsuarioService implements UserDetailsService {
 
         // Apenas criptografa se a senha FOI passada para atualização
         if (usuario.getSenha() != null && !usuario.getSenha().trim().isEmpty()) {
-            String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+            String senhaCriptografada = this.passwordEncoder.encode(usuario.getSenha());
             update.setSenha(senhaCriptografada);
         }
 
@@ -135,17 +133,4 @@ public class UsuarioService implements UserDetailsService {
     public Usuario findByEmail(String email) {
         return usuarioRepository.findByEmail(email);
     }
-
-
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepository.findByEmail(email);
-
-        if (usuario == null) {
-            throw new UsernameNotFoundException("Usuário não encontrado com o email: " + email);
-        }
-
-        return usuario;
-    }
-    
 }
