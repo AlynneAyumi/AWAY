@@ -2,8 +2,10 @@ package com.example.away.service;
 
 import com.example.away.dto.LoginRequest;
 import com.example.away.dto.LoginResponse;
+import com.example.away.model.Usuario;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,9 @@ public class AuthService {
     @Value("${keycloak.client-secret}")
     private String clientSecret;
 
+    @Autowired
+    public UsuarioService usuarioService;
+
     public LoginResponse login (LoginRequest loginRequest) {
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -53,9 +58,11 @@ public class AuthService {
             JsonNode json = mapper.readTree(response.body());
             String accessToken = json.get("access_token").asText();
 
+            Usuario user = usuarioService.findByEmail(loginRequest.getEmail());
+
             int expiresIn = json.get("expires_in").asInt();
 
-            return new LoginResponse(accessToken, expiresIn);
+            return new LoginResponse(accessToken, user, expiresIn);
 
         } catch (BadCredentialsException e) {
             throw e;

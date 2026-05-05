@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>away</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>away</name>
 	<description>Sistema Patronato Penitenciário</description>
 	<url/>
@@ -76,6 +77,12 @@
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-admin-client</artifactId>
 			<version>24.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
