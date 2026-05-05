@@ -3,6 +3,8 @@ package com.example.away.service;
 import java.sql.Date;
 import java.util.List;
 
+import com.example.away.model.Role;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.away.model.Usuario;
@@ -13,6 +15,9 @@ import jakarta.persistence.EntityNotFoundException;
 public class UsuarioService {
     
     private final UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private KeyCloakService keyCloakService;
 
 //    @Autowired
     private PasswordEncoder passwordEncoder;
@@ -37,8 +42,13 @@ public class UsuarioService {
         
         // Definir valores padrão se não fornecidos
         if (usuario.getRole() == null || usuario.getRole().trim().isEmpty()) {
-            usuario.setRole("FUNCIONARIO");
+            usuario.setRole(Role.FUNCIONARIO.name());
         }
+
+        if (usuario.getRole() != "Funcionario") {
+            usuario.setRole(Role.ADMIN.name());
+        }
+
         if (usuario.getAtivo() == null) {
             usuario.setAtivo(true);
         }
@@ -62,6 +72,12 @@ public class UsuarioService {
                 usuario.getPessoa().setSegundoNome("");
             }
         }
+
+        String id = keyCloakService.createUser(usuario.getNome(), usuario.getEmail(), usuario.getSenha());
+
+        usuario.setKeyCloakId(id);
+
+        keyCloakService.attachRole(id, usuario.getRole());
 
         // Criptografar senha antes de salvar
         if (usuario.getSenha() != null && !usuario.getSenha().trim().isEmpty()) {
@@ -122,11 +138,15 @@ public class UsuarioService {
             }
         }
 
+        keyCloakService.updateUser(usuario.getKeyCloakId(), usuario.getNome(), usuario.getEmail());
+
         return usuarioRepository.save(update);
     }
 
     public void delete(Long id) {
         Usuario usuario = findById(id);
+
+        keyCloakService.destroy(usuario.getKeyCloakId());
         usuarioRepository.delete(usuario);
     }
 

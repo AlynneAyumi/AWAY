@@ -34,6 +34,9 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private String role;
 
+    @Column(nullable = false)
+    private String keyCloakId;
+
     @Column(columnDefinition = "boolean default true")
     private Boolean ativo;
 
