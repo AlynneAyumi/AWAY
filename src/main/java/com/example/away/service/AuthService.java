@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -30,6 +32,9 @@ public class AuthService {
 
     @Value("${keycloak.client-secret}")
     private String clientSecret;
+
+    @Autowired
+    private JwtDecoder jwtDecoder;
 
     @Autowired
     public UsuarioService usuarioService;
@@ -67,5 +72,23 @@ public class AuthService {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao comunicar com o Keycloak", e);
         }
+    }
+
+    public Usuario user(String authHeader) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new BadCredentialsException("Token inválido");
+        }
+
+        Jwt token = jwtDecoder.decode(authHeader.substring(7));
+
+        String email = token.getClaimAsString("email");
+
+        Usuario user = usuarioService.findByEmail(email);
+
+        if (user == null) {
+            throw new RuntimeException("Usuário não encontrado");
+        };
+
+        return user;
     }
 }

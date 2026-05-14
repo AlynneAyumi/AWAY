@@ -1,5 +1,6 @@
 package com.example.away.controller;
 
+import com.example.away.model.Usuario;
 import com.example.away.service.AuthService;
 import com.example.away.dto.LoginRequest;
 import com.example.away.dto.LoginResponse;
@@ -19,6 +20,11 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         return ResponseEntity.status(HttpStatus.OK).body(this.service.login(loginRequest));
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<Usuario> login(@RequestHeader("Authorization") String authHeader) {
+        return ResponseEntity.status(HttpStatus.OK).body(this.service.user(authHeader));
     }
 
     @PostMapping("/logout")
