@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS assistido (
     num_auto               VARCHAR(255) UNIQUE,
     num_processo           VARCHAR(255),
     observacao             VARCHAR(255),
-    status_comparecimento  VARCHAR(255),
+    status_comparecimento  SMALLINT,
     ultimo_comparecimento  DATE,
     id_pessoa              BIGINT REFERENCES pessoa(id_pessoa),
     id_tipo_monitoramento  BIGINT REFERENCES tipo_monitoramento(id_tipo_monitoramento),
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS comparecimento (
 
 -- Usuarios
 INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso, key_cloak_id)
-VALUES ('admin@away.com', 'admin', '$2a$12$qBs2NkLlduDhP0BpGGa5i.83JyktmTRyeji/cAk1CvZ4.pUCXZBvq', 'ADMIN', true, 1, CURRENT_TIMESTAMP, 1, '')
+VALUES ('pedro@away.com', 'Pedro', '$2a$12$qBs2NkLlduDhP0BpGGa5i.83JyktmTRyeji/cAk1CvZ4.pUCXZBvq', 'ADMIN', true, 1, CURRENT_TIMESTAMP, 1, '')
 ON CONFLICT (email) DO UPDATE SET role = 'ADMIN';
 
 INSERT INTO usuario (email, nome_user, senha, role, ativo, created_by, creation_date, tipo_acesso, key_cloak_id)

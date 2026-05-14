@@ -8,6 +8,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class LoginResponse {
     private String token;
-    private Usuario usuario;
-    private Integer expiresIn; // em segundos
+    private Integer expiresIn;
 }

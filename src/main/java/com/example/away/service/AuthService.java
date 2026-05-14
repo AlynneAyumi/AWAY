@@ -58,11 +58,9 @@ public class AuthService {
             JsonNode json = mapper.readTree(response.body());
             String accessToken = json.get("access_token").asText();
 
-            Usuario user = usuarioService.findByEmail(loginRequest.getEmail());
-
             int expiresIn = json.get("expires_in").asInt();
 
-            return new LoginResponse(accessToken, user, expiresIn);
+            return new LoginResponse(accessToken, expiresIn);
 
         } catch (BadCredentialsException e) {
             throw e;
